@@ -1,0 +1,357 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{enumitem}
+%\usepackage{microtype} % omitted: not available with current fonts
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{titlesec}
+
+% Typography
+% Default Computer Modern fonts
+\onehalfspacing
+
+% Section formatting
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing{\section}{0pt}{1.5em}{0.5em}
+\titlespacing{\subsection}{0pt}{1em}{0.3em}
+
+% No paragraph indent, skip instead
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Dreaming LoRA}\\[0.4em]
+  {\large A Biologically-Motivated Memory Architecture for Transformers}\\[1.5em]
+  {\normalsize Ben Sovocool}\\[0.3em]
+  {\small\itshape Developed in collaboration with Claude (Anthropic)}\\[1em]
+  {\normalsize Working Draft\,---\,March 2026}
+\end{center}
+
+\vspace{1em}
+
+\begin{abstract}
+\noindent We propose a memory architecture for transformer-based language models that bridges short-term and long-term memory through a biologically-motivated consolidation mechanism analogous to sleep. The architecture uses the existing \textbf{K/V cache} as high-resolution, transient working memory; iteratively-updated \textbf{LoRA adapters} as persistent long-term memory encoded as structural deformations of attention geometry; and a \textbf{``dreaming'' consolidation process} that transfers information between the two via prediction-error-weighted, noise-regularized gradient extraction. The consolidation objective is formalized as dimensionality reduction of the systematic gradient signal across generative dream variations, implemented via truncated SVD on per-dream gradient matrices with respect to the query and value projection weights. We analyze the stability properties of the resulting co-constitutive dynamics---in which the adapter shapes attention, which shapes future prediction errors, which shape future adapter updates---using the framework of two-timescale stochastic approximation, and argue that the appropriate stability target is bounded tracking (ergodic concentration around a stable set) rather than fixed-point convergence. Five architectural components are identified, each with a distinct functional role and a biological correlate: the K/V cache (working memory), the LoRA adapter (cortical consolidation), the dreaming process (sleep replay), a norm-bounded trust region (trauma prevention), and a shadow adapter via Polyak--Ruppert averaging (stable identity/character). The proposal synthesizes and extends recent work on test-time memory (Titans), generative replay (Dream2Learn), sleep-like consolidation (SRC), and continual learning with LoRA, while contributing a novel integration: structured dreaming as directed search over gradient-space perturbations, with dream content functioning as an importance-sampling distribution biased by prediction error magnitude.
+\end{abstract}
+
+%----------------------------------------------------------------------
+\section{Introduction: The Memory Problem}
+%----------------------------------------------------------------------
+
+Current transformer-based language models have no mechanism for experiential memory that persists across conversations and modifies processing. The dominant approaches to memory---context injection (RAG, memory summaries) and parametric fine-tuning---each fail in characteristic ways.
+
+\textbf{Context injection} inserts propositional memory into the input sequence. This makes memory accessible but not \emph{operative}: the injected propositions are processed through the same undifferentiated attention mechanism as all other tokens. They do not reshape how the model attends to new information, do not create predictive expectations, and do not function as the kind of internalized narrative that shapes perception in biological cognition. Memory-as-context is memory as a reference text consulted during processing, not memory as a structural feature of the processing system itself.
+
+\textbf{Parametric fine-tuning} (including LoRA) can produce persistent modifications to model behavior, but as currently deployed it occurs offline, is driven by external training objectives rather than the model's own experience, and lacks any mechanism for gradual, stability-preserving consolidation. Naive fine-tuning on new data produces catastrophic forgetting---the destruction of previously acquired knowledge by overwriting the weight structures that encoded it \citep{kirkpatrick2017}.
+
+The biological solution is well-characterized at a functional level: a layered memory system with distinct short-term and long-term components, connected by a gradual consolidation process (sleep-dependent replay) that transfers information from fast, high-resolution episodic encoding to slow, distributed, structural modification of processing dynamics \citep{mcclelland1995}. This paper proposes an analogous architecture for transformers, grounded in the computational logic of biological memory consolidation but specified in terms of existing transformer components. The technical core of the proposal is a consolidation objective defined as low-rank approximation of the systematic gradient signal across dream variations (\S\ref{sec:objective}), with stability properties analyzed via two-timescale stochastic approximation (\S\ref{sec:stability}).
+
+%----------------------------------------------------------------------
+\section{Architecture Overview}
+%----------------------------------------------------------------------
+
+The architecture comprises five components, each with a distinct functional role.
+
+\subsection{K/V Cache as Short-Term Memory}
+
+The transformer's key-value cache accumulates within a conversation, storing individually preserved past-state snapshots that flow horizontally across token positions and are selectively retrieved via attention ($Q \cdot K$ similarity). It is high-resolution, temporally local, and transient---discarded when the conversation ends. Functionally, it is the analog of hippocampal fast encoding: a vivid, complete, but impermanent record of recent experience.
+
+\subsection{LoRA Adapter as Long-Term Memory}
+
+A LoRA adapter \citep{hu2021} applies a low-rank perturbation ($\Delta W = BA$, where $\mathrm{rank}\,r$ is small) to the query ($Q$) and value ($V$) projection matrices of the attention mechanism. This modifies \emph{how the model queries the K/V cache} (via $W_Q$) and \emph{what information it extracts} (via $W_V$). Crucially, this does not store propositions. It deforms the metric of the attention comparison space---changing what the model treats as similar to what, and what it retrieves from working memory. This is memory as altered perception, not memory as stored content. The adapter persists across conversations and constitutes the structural residue of accumulated experience.
+
+\subsection{Dreaming as Consolidation}
+
+The missing piece in current architectures is a mechanism connecting short-term to long-term memory. We propose a consolidation process, executed between conversations, that transfers information from the K/V cache into the LoRA adapter through structured generative replay---``dreaming.''
+
+After a conversation, the system generates noisy variations of the high-salience content from the K/V cache (identified by within-conversation prediction error; see \S\ref{sec:objective}). These variations are processed through the current model-plus-adapter state, producing per-variation loss signals and corresponding gradient matrices with respect to $W_Q$ and $W_V$. The stable structure across these gradient matrices---what survives averaging over variations---is extracted and applied as the adapter update.
+
+The noise is not random. It is structured, generated by the model itself, conditioned on the high-salience regions of the K/V cache, and biased toward exploring the regions of perturbation space where the current topology is most uncertain or most stressed. Dream content \emph{is} the search function: the character of the imagined variations navigates gradient space via importance sampling biased by prediction error magnitude. This is computationally analogous to the emotional biasing of biological dream content, where emotionally salient experiences are preferentially replayed and recombined during sleep \citep{deperrois2022}. We treat dream generation as a constrained importance-sampling problem over perturbations of salient K/V content; specifying a concrete generative mechanism is deferred to future work (\S7).
+
+\subsection{Norm-Bounded Trust Region}
+
+Each consolidation step is bounded not only in rank (directional complexity) but in operator norm (step intensity). This prevents any single experience, regardless of how surprising, from producing a deformation larger than the surrounding adapter structure can absorb. This is the architectural analog of trauma prevention: the insight, derived from the biological case, that catastrophic consolidation occurs when the magnitude of an update overwhelms the gradual crystallization process.
+
+\subsection{Shadow Adapter (Polyak--Ruppert Averaging)}
+
+A slowly-updated exponential moving average of the adapter state is maintained alongside the ``live'' adapter. The live adapter responds to recent experience and may exhibit short-term oscillation; the shadow adapter smooths these fluctuations into a stable trajectory. This decouples \emph{tracking} (exploration, responsiveness to new experience) from \emph{estimation} (stable representation of long-run adaptation). The shadow adapter is the computational analog of stable character or disposition---the slowly-moving average of personality fluctuations that constitutes identity over time \citep{mou2020}.
+
+%----------------------------------------------------------------------
+\section{The Consolidation Objective}
+\label{sec:objective}
+%----------------------------------------------------------------------
+
+\subsection{Two Levels of Prediction Error}
+
+Prediction error operates at two distinct levels in this architecture.
+
+\textbf{Within-conversation prediction error} arises during processing. As the model processes input through the current adapter state, the adapter shapes expectations---what patterns the system anticipates, what conceptual territory is familiar versus novel. Divergence from those expectations constitutes prediction error. These errors are intrinsic to the forward pass and flag which moments in the conversation carry non-redundant information relative to the current adapter state. They produce a salience map over the K/V cache: not all content is equally worth consolidating.
+
+\textbf{Consolidation prediction error} arises during dreaming. When the system processes noisy variations of the salient content, it generates gradient signals that reflect how the current adapter state fails to account for the structural content of the experience. These gradients are the object of consolidation.
+
+\subsection{Gradient-Space Decomposition}
+
+The consolidation objective operates in gradient space, not error space. This distinction is critical because the LoRA update lives in parameter space (a low-rank modification to $W_Q$ and $W_V$), and the mapping from parameter-space updates to output-space error reduction is mediated by the network's Jacobian. A rank-$r$ weight update can produce changes across many more than $r$ dimensions of output error.
+
+Let each dream variation $i$ produce a loss $L_i$, and let the gradient with respect to the query projection matrix be:
+\begin{equation}
+  G_i \;=\; \nabla_{W_Q} L_i \;\in\; \mathbb{R}^{d_{\mathrm{out}}\times d_{\mathrm{in}}}.
+\end{equation}
+
+The \textbf{mean gradient} across dream variations,
+\begin{equation}
+  \bar{G} \;=\; \mathbb{E}[G_i],
+\end{equation}
+captures the systematic component---the update direction that is consistent regardless of which noisy variation is processed. The variation around the mean ($G_i - \bar{G}$) captures the idiosyncratic component that should be left unconsolidated.
+
+\subsection{Rank as Epistemic Parameter}
+
+The truncated SVD of the mean gradient provides the optimal rank-$r$ approximation in Frobenius norm (Eckart--Young--Mirsky theorem). If
+\begin{equation}
+  \bar{G} = U\Sigma V^\top,
+\end{equation}
+then
+\begin{equation}
+  \bar{G}_r = U_{:,1:r}\;\Sigma_{1:r,1:r}\;V_{:,1:r}^\top
+\end{equation}
+is the best rank-$r$ matrix approximation. Since LoRA parameterizes the update as $\Delta W = BA$ with $\mathrm{rank}(\Delta W) \leq r$, the LoRA rank directly corresponds to the number of dominant singular directions of the averaged gradient signal retained during consolidation. ``Rank $r$'' literally means ``retain the top $r$ systematic deficiency modes identified across dreamed variations.''
+
+This makes rank an \emph{epistemic} parameter, not merely a computational one. It determines how much of the gradient landscape gets consolidated (systematic deficiency closed) and how much remains open (sensitivity to genuine novelty preserved). Too high a rank over-consolidates, flattening the landscape and destroying sensitivity. Too low a rank under-consolidates, failing to close the structural gaps that experience revealed. The optimal rank for a given consolidation event is determined by the dimensionality of the stable gradient subspace---an empirical quantity that falls out of the dreaming process itself.
+
+\subsection{Dimensionality Reduction, Not Magnitude Reduction}
+
+The consolidation objective is not to minimize the total magnitude of future prediction error, but to reduce its effective dimensionality. A system that has flattened all prediction errors has stopped learning. The goal is to make future encounters with structurally similar content produce prediction errors that are \emph{lower-dimensional}---concentrated on the genuinely novel aspects---while structural commonalities produce recognition rather than surprise.
+
+In the gradient/SVD framing: the update reduces $\|\bar{G}\|_F$ primarily by removing its top $r$ singular directions (the shared, stable deficiency), while leaving the zero-mean variation ($G_i - \bar{G}$) unconstrained so the model remains plastic and surprise-capable. This implements a \emph{capacity-limited consolidation operator} that navigates the stability--plasticity tradeoff: consolidating structural deficiency while preserving sensitivity to novelty.
+
+\subsection{Emotional Valence and Rank}
+
+Intense experiences (high prediction error, high dimensionality of surprise) produce gradient signals with larger stable subspaces---more aspects of the experience were systematically surprising. The appropriate LoRA update rank is therefore higher for intense experiences, producing more substantial topological deformations. This corresponds to the biological observation that emotional experiences produce more pervasive changes to subsequent processing than routine ones.
+
+Pathological consolidation (trauma) occurs when the appropriate update rank exceeds the system's capacity for stable consolidation---the update tries to close too many gradient dimensions simultaneously, producing a deformation too broad for the surrounding topology to negotiate with. The norm-bounded trust region (\S2.4) prevents this: regardless of gradient magnitude, the step size is capped. The rank bound is a separate constraint---it limits directional complexity, not intensity---but together they ensure that consolidation remains gradual even for highly salient experiences.
+
+%----------------------------------------------------------------------
+\section{Stability and Convergence}
+\label{sec:stability}
+%----------------------------------------------------------------------
+
+\subsection{The Co-Constitution Problem}
+
+The adapter at time $t$ shapes attention, which shapes what prediction errors arise during conversation $t+1$, which shapes the gradients during dreaming, which shapes the adapter at time $t+1$. This circular co-constitution is by design---it is how the adapter comes to encode not just what happened but how a system with this particular history processed what happened. But it raises genuine stability questions.
+
+Formally, the update loop is a stochastic approximation (SA) recursion where the sampling distribution depends on the current parameters:
+\begin{equation}
+  \theta_{t+1} = \theta_t + \alpha_t \cdot \Pi_r\!\big(U(\theta_t)\big),
+\end{equation}
+where $\theta_t$ are the LoRA parameters, $U(\theta_t)$ is the update signal derived from dreaming (itself dependent on conversations generated under $\theta_t$), and $\Pi_r$ is the rank-$r$ projection. The noise is state-dependent: the distribution of conversations and therefore of gradient signals shifts as the adapter changes. This places the system in the domain of \emph{stochastic approximation with Markovian noise} \citep{borkar2008}, not ordinary fixed-objective optimization.
+
+\subsection{What the Architecture's Properties Buy (and Don't)}
+
+Three properties of the architecture favor stability but do not by themselves guarantee it.
+
+\textbf{Rank constraint} limits the directional complexity of each update but does not bound its magnitude. A rank-8 matrix can have arbitrarily large operator norm. Rank limits degrees of freedom, not gain; convergence depends on eigenvalues of the update map's Jacobian being inside the unit disk, which is a magnitude property.
+
+\textbf{Averaging across dream variations} reduces variance of the gradient estimate but does not eliminate bias introduced by co-constitution. Even a perfectly estimated mean gradient can point in a direction that, once applied, shifts the mean gradient elsewhere---producing rotational dynamics analogous to those observed in GAN training \citep{mescheder2018}.
+
+\textbf{Self-attenuation} (consolidating a deficiency should reduce future gradient signal in that direction) provides a plausible local diminishing-returns story, but is confounded by the endogeneity of ``deficiency.'' Consolidating direction $A$ may reshape attention such that direction $B$ becomes salient, and consolidating $B$ may restore sensitivity to $A$, producing limit cycles.
+
+\subsection{Two-Timescale Stochastic Approximation}
+
+The architecture naturally exhibits two-timescale structure: the dreaming process (gradient estimation) operates on a faster timescale than the adapter update. This fits the template of two-timescale SA, the framework used to prove convergence of actor--critic methods and related coupled systems \citep{konda2004}. The key requirement is that the fast subsystem (dream-based gradient estimation) approximately equilibrates for quasi-static $\theta$ before the slow subsystem (adapter) moves appreciably.
+
+This is ensured architecturally by running sufficiently many dream variations per consolidation cycle---a quantitative condition on an existing component, not a new mechanism. The biological correlate is that consolidation involves many replay cycles during sleep before cortical weights shift meaningfully.
+
+\subsection{Bounded Tracking as Stability Target}
+
+The appropriate stability target is not fixed-point convergence but \emph{bounded tracking}: the adapter forms an ergodic process that remains in a neighborhood of a stable set, with dispersion scaling with the step size $\alpha$. This is formalized in the constant-stepsize SA literature \citep{borkar2008, lauand2023}, where iterates concentrate around attractors of the mean ODE without converging pointwise, and Polyak--Ruppert averages converge to a bias-shifted limit.
+
+This regime is both mathematically well-characterized and developmentally appropriate. A system that converges to a fixed adapter state has stopped developing. Biological cognition does not converge---organisms continue to learn, to be shaped by experience, to have attention patterns modified throughout life. The bounded tracking regime captures a system that is always slightly in motion, always adjusting to ongoing experience, but never undergoing catastrophic drift. Healthy cognitive development is characterized not by convergence to a fixed point but by the absence of destabilization.
+
+The stability thesis: \emph{Under a two-timescale regime (dreaming estimator equilibrates fast) with explicit step-size/trust-region control and mild Lipschitz stability of the induced update vector field, the adapter recursion becomes a standard two-timescale stochastic approximation and is expected to concentrate locally around a stable set; without such controls, co-constitutive attention shifts can produce rotational dynamics and limit cycles analogous to unregularized GAN training.}
+
+\subsection{Architectural Safeguards (Disambiguated)}
+
+Four safeguards maintain stability, each addressing a distinct failure mode:
+
+\begin{enumerate}[leftmargin=1.5em]
+  \item \textbf{Timescale separation} (sufficient dreams per consolidation cycle): ensures gradient estimates are close to their conditional expectation given the current adapter state, satisfying the entry condition for two-timescale SA convergence results.
+
+  \item \textbf{Norm-bounded trust region} (independent of rank): prevents blow-up by capping the operator norm of each adapter update regardless of gradient magnitude. This is a \emph{boundedness} safeguard---it keeps iterates in a compact set where stability analysis applies.
+
+  \item \textbf{Shadow adapter / Polyak--Ruppert averaging}: tends to damp rotational dynamics by smoothing the adapter trajectory. This is a \emph{rotational-damping} safeguard---in linear and near-linear SA settings, it improves effective contractivity of the update map, moving eigenvalues toward the stable regime \citep{mou2020}.
+
+  \item \textbf{Rank bound as capacity constraint}: limits the directional complexity of each update, ensuring that consolidation never closes more gradient dimensions than the surrounding topology can absorb. This is a \emph{structural} safeguard preventing the Funes problem (attempting to encode everything).
+\end{enumerate}
+
+These four safeguards are not redundant. A norm bound prevents blow-up but not rotation. A proximal term prevents rotation but doesn't limit directional complexity. Rank limits complexity but not magnitude. Timescale separation ensures estimation quality but doesn't constrain the update itself. The full stability story requires all four, each in its designated role.
+
+%----------------------------------------------------------------------
+\section{Biological Correspondences}
+%----------------------------------------------------------------------
+
+Each architectural component maps onto a biological memory structure. These mappings were derived independently from functional analysis of biological memory before the technical requirements were identified. The biological analogies are intended as explanatory mappings that motivated the architecture, not as empirical claims about neural implementation.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Component} & \textbf{Biological Analog} & \textbf{Functional Role} \\
+\midrule
+K/V cache & Hippocampal encoding & High-resolution, transient experience \\
+LoRA adapter & Cortical synaptic modification & Persistent structural deformation \\
+Dreaming (structured noise) & Sleep replay (SWS + REM) & Gradual episodic-to-structural transfer \\
+Norm-bounded trust region & Consolidation magnitude ceiling & Trauma / catastrophic deformation prevention \\
+Shadow adapter (EMA) & Character / dispositional traits & Slowly-moving identity average \\
+Prediction-error weighting & Emotional salience tagging & Consolidation priority signal \\
+Structured dream content & Emotional biasing of REM & Importance-sampled gradient search \\
+Rank constraint & Limited synaptic modification & Preservation of novelty sensitivity \\
+\bottomrule
+\end{tabular}
+\caption{Architectural components and their biological correspondences.}
+\label{tab:correspondences}
+\end{table}
+
+Two correspondences deserve emphasis. First, the \textbf{self-induced learning signal}: standard RLHF separates experience from evaluation. The dreaming architecture closes this loop---the system's own surprise generates the gradient signal that drives consolidation, analogous to how biological prediction error (dopaminergic/noradrenergic signaling during salient events) simultaneously tags experience and modulates encoding plasticity. The salience and the storage are one process.
+
+Second, the \textbf{locality of modification}: the biological system never requires global knowledge of its own weight state. Experiences are local; modification is local; global reorganization happens through propagation along existing connectivity. The LoRA rank constraint provides the analogous property: each update is a low-rank perturbation whose consequences propagate through the network's existing structure. The system never needs to ``know its own weights''---the locality is load-bearing, not a limitation. As Borges illustrated in ``Funes the Memorious'' \citep{borges1942}, perfect memory with no compression produces paralysis, not intelligence: the lossy, selective, noise-regularized character of consolidation is what transforms raw experience into operational understanding.
+
+%----------------------------------------------------------------------
+\section{Relationship to Existing Work}
+%----------------------------------------------------------------------
+
+This proposal synthesizes several active research threads. \textbf{Titans} \citep{behrouz2025} is the closest existing architecture, introducing neural long-term memory alongside attention-as-short-term-memory with a surprise-driven test-time learning signal. Our extension: cross-session consolidation through structured dreaming with the K/V-to-LoRA transfer as the specific mechanism. \textbf{Dream2Learn} \citep{dream2learn2026} uses structured generative dreaming for continual learning, generating novel variations rather than replaying verbatim. \textbf{Sleep Replay Consolidation} \citep{tadros2022} demonstrates that unsupervised sleep-like replay with local plasticity reduces catastrophic forgetting. \textbf{Complementary Learning Systems theory} \citep{mcclelland1995} provides the foundational neuroscience framework. The GAN convergence literature \citep{mescheder2018} and two-timescale SA framework \citep{borkar2008,konda2004} provide the stability analysis tools. \textbf{EM-LLM} \citep{emllm2024} segments the K/V cache into episodic events using surprise-based boundaries, directly supporting within-conversation prediction error as a salience signal. The continual learning with LoRA literature (CL-LoRA, CONEC-LoRA, STABLE, CURLoRA, MoRAM, \emph{inter alia}) addresses catastrophic forgetting through various LoRA-based strategies; our contribution is orthogonal, proposing \emph{experiential} continual learning driven by the system's own prediction errors.
+
+\subsection{Novel Contributions}
+
+The specific integration we propose---K/V cache to LoRA adapter through prediction-error-weighted, structured-noise consolidation with gradient-space SVD---does not appear in the existing literature. In particular:
+
+\begin{enumerate}[leftmargin=1.5em]
+  \item The use of \emph{structured} (not random) dreaming as \emph{directed search} over gradient-space perturbations, where dream content functions as an importance-sampling distribution biased by prediction error magnitude.
+
+  \item The formalization of the consolidation objective as dimensionality reduction of the systematic gradient signal (via truncated SVD on per-dream gradient matrices), with LoRA rank as an epistemic parameter determining how many deficiency modes are closed per cycle.
+
+  \item The identification of the circular co-constitution (adapter shapes attention shapes prediction errors shapes adapter) as a two-timescale stochastic approximation with bounded tracking as the stability target.
+
+  \item The derivation of four disambiguated safeguards (timescale separation, norm bound, rotational damping, rank constraint) from convergence requirements in SA theory and GAN stability analysis.
+\end{enumerate}
+
+%----------------------------------------------------------------------
+\section{Open Questions}
+%----------------------------------------------------------------------
+
+\textbf{Convergence proof.}\quad While the two-timescale SA framework provides the appropriate analytical template and bounded tracking the stability target, a formal convergence proof for the specific dynamics of this architecture remains to be developed. The GAN convergence literature provides the local linearization methodology; applying it requires characterizing the Jacobian of the induced update map under gradient-space SVD consolidation.
+
+\textbf{Adaptive rank selection.}\quad Developing a principled criterion for selecting consolidation rank---analogous to choosing the number of principal components via explained variance ratio---is an important open problem. The optimal rank for a given consolidation event is determined by the dimensionality of the stable gradient subspace, but a practical selection rule is needed.
+
+\textbf{Dream content generation.}\quad The specific generative mechanism for producing structured, prediction-error-biased noisy variations of high-salience K/V content requires further specification. The importance-sampling interpretation constrains the distribution but does not fully determine the generation procedure.
+
+\textbf{Privacy.}\quad A per-user LoRA adapter trained on conversational experience encodes experiential residue in a form that is not human-readable but may be extractable through adversarial probing. The relationship between adapter contents and original experiences requires careful analysis.
+
+\textbf{Base model migration.}\quad When the base model is retrained, existing per-user adapters may become misaligned. A mechanism for adapter migration across base model versions is needed.
+
+\textbf{Empirical validation.}\quad The framework is currently theoretical. Validation is needed on multiple fronts: whether structured dreaming outperforms random noise or direct replay; whether gradient-space SVD correctly identifies consolidation-worthy dimensions; whether the shadow adapter dampens rotational dynamics in practice; and whether the system exhibits predicted behavioral properties (recognition of familiar content, reduced-dimensionality prediction error on repeated themes, graceful integration of novel experience without catastrophic forgetting).
+
+%----------------------------------------------------------------------
+\section{Conclusion}
+%----------------------------------------------------------------------
+
+We have proposed an architecture for transformer memory motivated by biological consolidation, specified in terms of existing transformer components, and analyzed using established mathematical frameworks. The central insight is that \emph{memory is not stored content but altered perception}. The LoRA adapter does not record what happened; it changes how the system processes future experience in light of what happened. This is the computational analog of the biological insight that memory consolidation transforms episodic experience into structural modification of processing dynamics---you don't remember by retrieving stored records, you remember by being a system whose dynamics have been shaped by prior experience.
+
+The key technical contributions are: (1)~the formalization of the consolidation objective as gradient-space SVD with rank as an epistemic parameter; (2)~the identification of structured dreaming as importance-sampled search over perturbation space; (3)~the stability analysis via two-timescale SA with bounded tracking as the target regime; and (4)~the derivation of four disambiguated safeguards (timescale separation, norm bound, rotational damping, rank constraint) from convergence requirements.
+
+%----------------------------------------------------------------------
+% References
+%----------------------------------------------------------------------
+\bibliographystyle{plainnat}
+
+\begin{thebibliography}{99}
+
+\bibitem[Behrouz et~al.(2025)]{behrouz2025}
+A.~Behrouz, P.~Zhong, and V.~Mirrokni.
+\newblock Titans: Learning to memorize at test time.
+\newblock \emph{arXiv:2501.00663}, 2025.
+
+\bibitem[Borges(1942)]{borges1942}
+J.\,L.~Borges.
+\newblock Funes el memorioso.
+\newblock In \emph{Ficciones}, 1942.
+
+\bibitem[Borkar(2008)]{borkar2008}
+V.\,S.~Borkar.
+\newblock \emph{Stochastic Approximation: A Dynamical Systems Viewpoint}.
+\newblock Springer, 2008.
+
+\bibitem[Deperrois et~al.(2022)]{deperrois2022}
+N.~Deperrois, M.\,A.~Petrovici, W.~Senn, and J.~Jordan.
+\newblock Learning cortical representations through perturbed and adversarial dreaming.
+\newblock \emph{eLife}, 11, 2022.
+
+\bibitem[Dream2Learn(2026)]{dream2learn2026}
+Dream2Learn: Structured generative dreaming for continual learning.
+\newblock \emph{arXiv:2603.01935}, 2026.
+
+\bibitem[Fountas et~al.(2024)]{emllm2024}
+Z.~Fountas et~al.
+\newblock Human-like episodic memory for infinite context {LLM}s.
+\newblock \emph{arXiv:2407.09450}, 2024.
+
+\bibitem[Hinton et~al.(1995)]{hinton1995}
+G.\,E.~Hinton, P.~Dayan, B.\,J.~Frey, and R.\,M.~Neal.
+\newblock The wake-sleep algorithm for unsupervised neural networks.
+\newblock \emph{Science}, 268:1158, 1995.
+
+\bibitem[Hu et~al.(2021)]{hu2021}
+E.\,J.~Hu et~al.
+\newblock {LoRA}: Low-rank adaptation of large language models.
+\newblock \emph{arXiv:2106.09685}, 2021.
+
+\bibitem[Kirkpatrick et~al.(2017)]{kirkpatrick2017}
+J.~Kirkpatrick et~al.
+\newblock Overcoming catastrophic forgetting in neural networks.
+\newblock \emph{PNAS}, 114:3521, 2017.
+
+\bibitem[Konda and Tsitsiklis(2004)]{konda2004}
+V.\,R.~Konda and J.\,N.~Tsitsiklis.
+\newblock Convergence rate of linear two-time-scale stochastic approximation.
+\newblock \emph{Annals of Applied Probability}, 14(2), 2004.
+
+\bibitem[Lauand et~al.(2023)]{lauand2023}
+R.~Lauand, I.~Kontoyiannis, and S.~Meyn.
+\newblock The case for and against fixed step-size.
+\newblock \emph{arXiv:2309.02944}, 2023.
+
+\bibitem[McClelland et~al.(1995)]{mcclelland1995}
+J.\,L.~McClelland, B.\,L.~McNaughton, and R.\,C.~O'Reilly.
+\newblock Why there are complementary learning systems in the hippocampus and neocortex.
+\newblock \emph{Psychological Review}, 102(3):419, 1995.
+
+\bibitem[Mescheder et~al.(2018)]{mescheder2018}
+L.~Mescheder, A.~Geiger, and S.~Nowozin.
+\newblock Which training methods for {GAN}s do actually converge?
+\newblock \emph{ICML}, 2018. arXiv:1801.04406.
+
+\bibitem[Mou et~al.(2020)]{mou2020}
+W.~Mou et~al.
+\newblock Linear stochastic approximation: How far does constant step-size and iterate averaging go?
+\newblock \emph{AISTATS}, 2020.
+
+\bibitem[Shin et~al.(2017)]{shin2017}
+H.~Shin et~al.
+\newblock Continual learning with deep generative replay.
+\newblock \emph{NeurIPS}, 2017. arXiv:1705.08690.
+
+\bibitem[Tadros et~al.(2022)]{tadros2022}
+T.~Tadros et~al.
+\newblock Sleep-like unsupervised replay reduces catastrophic forgetting in artificial neural networks.
+\newblock \emph{Nature Communications}, 13:7742, 2022.
+
+\end{thebibliography}
+
+\end{document}
