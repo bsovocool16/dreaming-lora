@@ -12,26 +12,28 @@ Working Draft — March 2026
 
 Current LLMs have no mechanism for experiential memory that persists across conversations and modifies processing. Context injection gives models a cheat sheet; it doesn't reshape how they think. This paper proposes an architecture that bridges short-term and long-term memory through a consolidation mechanism analogous to sleep.
 
-The core idea: the transformer's K/V cache functions as transient working memory. A LoRA adapter — a small, low-rank modification to the attention weights — functions as persistent long-term memory by deforming *how the model pays attention*, not by storing facts. A "dreaming" process transfers information between the two: after each conversation, the system generates structured variations of surprising content, extracts the consistent gradient signal across those variations via truncated SVD, and applies the result as a small adapter update. Memory becomes altered perception, not stored content.
+The core idea: the transformer's K/V cache functions as transient working memory. A LoRA adapter — a small, low-rank modification to the attention weights — functions as persistent long-term memory by deforming *how the model pays attention*, not by storing facts. A "dreaming" process transfers information between the two: after each conversation, the system generates structured variations of surprising content via adapter-biased context transplantation, extracts the consistent gradient signal across those variations via truncated SVD, and applies the result as a small adapter update. Memory becomes altered perception, not stored content.
 
-The paper formalizes the consolidation objective in gradient space (not error space), treats LoRA rank as an epistemic parameter determining how many deficiency modes are closed per cycle, specifies dream content generation as adapter-biased context transplantation with an anti-bias correction for confirmation bias, analyzes stability via two-timescale stochastic approximation, and argues that the correct stability target is bounded tracking rather than fixed-point convergence. A three-phase developmental trajectory (curriculum → transition → mature consolidation) is derived from the architecture's own feedback dynamics.
+The consolidation loss is composite: reconstruction (next-token prediction), representational coherence (contrastive alignment across dream contexts), and homeostatic regularization (weight decay enabling rejuvenation). The balance is self-regulated by the spectral energy of the mean gradient modulated by adapter maturity — a design corrected by the infant-sleep inversion, where the biological evidence revealed that the computationally naive balance was wrong.
+
+The paper analyzes stability via two-timescale stochastic approximation, argues for bounded tracking rather than fixed-point convergence, identifies a three-phase developmental trajectory (curriculum → transition → mature consolidation), and derives all scheduling from a single endogenous maturity signal (adapter Frobenius norm).
 
 ## Files
 
-- **[dreaming_lora.pdf](dreaming_lora.pdf)** — The paper (17 pages)
+- **[dreaming_lora.pdf](dreaming_lora.pdf)** — The paper (v4, 20 pages)
 - **[dreaming_lora.tex](dreaming_lora.tex)** — LaTeX source
 
-## What Changed (March 2026 update)
+## What Changed (v4)
 
-Since the initial release, the paper has been substantially expanded based on iterative review:
+Since v3 (dream content generation, developmental phases, pseudocode):
 
-- **Dream content generation (§5):** Concrete mechanism specified — adapter-biased context transplantation with anti-bias correction, embedding-space structured noise, and maturity-dependent scheduling governed by a single adapter-norm signal
-- **Developmental phases (§5.7):** Three-phase trajectory (curriculum → transition → mature consolidation) derived from the cold-start problem in the architecture's self-reinforcing dynamics
-- **Pseudocode (Algorithm 1):** Complete consolidation pipeline with SVD-to-LoRA factoring, smooth importance-weight interpolation, and operator-norm clipping
-- **Revised §3.5:** Honest separation of what the formalism gives you from what it doesn't on the intensity → rank question
-- **Stability sharpened:** SVD discontinuity flagged as specific obstacle; Titans distinction clarified as within-session vs. cross-session
-- **Compute cost analysis** added to open questions
+- **Composite consolidation objective (§3.6):** Three-component loss (reconstruction, representational coherence via InfoNCE, homeostatic regularization) with self-regulating balance governed by spectral energy of the mean gradient, modulated by adapter maturity
+- **Infant-sleep inversion correction:** Naive spectral-energy regulation makes young adapters reconstruction-dominant; biological evidence that infants have more REM (abstraction) led to maturity modulation λ_recon = μρ/(1+λ_base), highlighted as a case where biology did genuine corrective theoretical work
+- **Homeostatic rejuvenation dynamics:** Weight decay provides a slow restoring force — unreinforced adapters gradually become more exploratory, the computational analog of cognitive flexibility during rest
+- **Coherence floor (λ_base):** Prevents "perpetual cramming" under sustained moderate novelty
+- **Notation and cross-reference fixes:** Equation numbers updated, coherence loss denominator corrected, SVD justification added, base model frozen status clarified
+- **Novel contributions merged:** Single maturity signal governing all developmental scheduling (noise, importance weights, salience, loss balance) presented as one unified design principle
 
 ## How This Was Made
 
-I'm a practicing lawyer, not an academic. This was an iterative process with Claude Opus 4.6 (and some off-task use of my work Copilot account for review), starting with a philosophical analysis of biological memory and phenomenological reports (i.e., my own self-reporting), and then formalized. Comments, criticism, and revisions are 100% welcome.
+I'm a practicing lawyer, not an academic. This was an iterative process with Claude Opus 4.6 (and some generous off-task use of my work Copilot account for adversarial review), starting from a philosophical analysis of biological memory and progressively formalizing. The architecture is theoretical — no experiments yet, which is where I run out of road. Comments, criticism, and especially empirical collaborations are very welcome.
