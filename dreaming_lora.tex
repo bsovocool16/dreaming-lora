@@ -354,32 +354,22 @@ Algorithm~\ref{alg:consolidation} summarizes the complete dreaming consolidation
 \caption{Dreaming Consolidation (Phases 2--3)}
 \label{alg:consolidation}
 \begin{algorithmic}[1]
-\REQUIRE K/V cache $\{(h_t, \ell_t)\}$ from conversation, current LoRA adapter $\theta = (A_Q, B_Q, A_V, B_V)$, base model weights $W$, hyperparameters $k, n, r_{\max}, \delta_{\max}, \alpha, \beta, \gamma, \epsilon_0, \lambda, \tau, \eta, \lambda_\text{base}$
-\STATE \textbf{Maturity signal:} $\mu \gets \frac{\|A_Q\|_F^2}{\|A_Q\|_F^2 + \epsilon_0}$
-\STATE \textbf{Salience selection:} Compute $w_t \gets \ell_t \cdot \bigl[(1-\mu) + \mu \cdot \|A_Q h_t\|_2^2\bigr]$ for all $t$. Select top-$k$ positions; extract salient subsequences $\mathcal{T}$ and hidden states $\mathcal{H}$.
-\STATE \textbf{Context generation:} Sample $n$ candidate contexts $\{c^{(1)}, \dots, c^{(n)}\}$ from the adapted model.
-\STATE \textbf{Importance weighting:} Compute losses $L_\theta(c^{(j)})$ and $L_W(c^{(j)})$. Form interpolated weights:
-\[
-p(c^{(j)}) \propto (1-\mu) \cdot \frac{L_\theta(c^{(j)})}{L_W(c^{(j)}) + \epsilon} + \mu \cdot \sum_{t \in c^{(j)}} \bigl(\|A_Q h_t^{(j)}\|_2^2 + \lambda \|A_V h_t^{(j)}\|_2^2\bigr)
-\]
-Sample $n'$ contexts according to $p(\cdot)$.
-\FOR{each selected context $c^{(j)}$}
-    \STATE Transplant salient content $\mathcal{T}$ into $c^{(j)}$ to form chimeric sequence $d^{(j)}$.
-    \STATE Add structured embedding noise:
-    \[
-    \tilde{h}_t \gets h_t + \epsilon_t, \quad
-    \epsilon_t \sim \mathcal{N}\bigl(0, \sigma_{\rm base}^2 I + \gamma\mu\,\sigma_{\rm base}^2 S_Q\bigr)
-    \]
-    \STATE Process $d^{(j)}$ through model + adapter $\theta$; compute composite loss $L_j = \lambda_\text{recon} L_\text{recon}^{(j)} + \lambda_\text{cohere} L_\text{cohere}^{(j)} + L_\text{homeo}$ (\S 3.6).
-    \STATE Extract gradient $G_j \gets \nabla_{W_Q} L_j$ (repeat analogously for $W_V$).
+\REQUIRE K/V cache $\{(h_t, \ell_t)\}$, current adapter $\theta = (A_Q, B_Q, A_V, B_V)$, base model $W$, hyperparameters $k,n,r_{\max},\delta_{\max},\alpha,\beta,\gamma,\epsilon_0,\lambda,\tau,\eta,\lambda_{\rm base}$
+\STATE Maturity: $\mu \gets \frac{\|A_Q\|_F^2}{\|A_Q\|_F^2 + \epsilon_0}$
+\STATE Salience \& context selection (as in \S 5.2--5.3) $\to$ $n'$ chimeric sequences $d^{(j)}$
+\FOR{each $d^{(j)}$}
+    \STATE Add structured noise (\S 5.4)
+    \STATE Compute three losses on $d^{(j)}$:
+    \STATE \quad $L_{\rm recon}^{(j)} \gets -\sum_{t\in \mathcal{T}} \log p(x_t \mid x_{<t},\theta)$ \quad (Eq.~5)
+    \STATE \quad $L_{\rm cohere}^{(j)} \gets$ InfoNCE on post-adapter states across contexts (Eq.~6)
+    \STATE \quad $L_{\rm homeo}^{(j)} \gets \eta (\|A_Q\|_F^2 + \|B_Q\|_F^2 + \|A_V\|_F^2 + \|B_V\|_F^2)$ \quad (Eq.~7)
 \ENDFOR
-\STATE \textbf{Update loss balance:} Compute $\hat{\rho} \gets \norm{\bar{G}_r}_F / (\norm{\bar{G}_r}_F + \epsilon)$; smooth $\rho \gets (1-\alpha_\rho)\rho + \alpha_\rho \hat{\rho}$. Set $\lambda_\text{recon}, \lambda_\text{cohere}$ via Eq.~(9) for next cycle.
-\STATE \textbf{Gradient-space consolidation:} $\bar{G} \gets \frac{1}{n'} \sum_j G_j$.
-\STATE Compute SVD: $\bar{G} = U\Sigma V^\top$. Retain top-$r$ components ($r \le r_{\max}$).
-\STATE \textbf{Factor into LoRA form:} $B \gets U_{:,1:r} \Sigma_{1:r,1:r}^{1/2}$, $A \gets \Sigma_{1:r,1:r}^{1/2} V_{:,1:r}^\top$.
-\STATE \textbf{Norm clipping:} Form $\Delta W = BA$. If $\|\Delta W\|_{\rm op} > \delta_{\max}$, rescale $\Delta W \gets \delta_{\max} \cdot \Delta W / \|\Delta W\|_{\rm op}$.
-\STATE \textbf{Update:} Live adapter $\theta \gets \theta + \alpha \cdot \Delta W$; shadow adapter $\theta_{\rm shadow} \gets (1-\beta)\theta_{\rm shadow} + \beta \theta$.
-\ENSURE Updated live adapter $\theta$ and stable shadow adapter $\theta_{\rm shadow}$
+\STATE Reconstruction pressure: $\rho \gets \|\bar{G}_r\|_F / (\|\bar{G}_r\|_F + \epsilon)$ (Eq.~8), EMA-smoothed
+\STATE Loss weights: $\lambda_{\rm recon} = \mu\rho / (1+\lambda_{\rm base})$, $\lambda_{\rm cohere} = (1 - \mu\rho + \lambda_{\rm base})/(1+\lambda_{\rm base})$ (Eq.~9)
+\STATE Composite loss per dream: $L_j = \lambda_{\rm recon} L_{\rm recon}^{(j)} + \lambda_{\rm cohere} L_{\rm cohere}^{(j)} + L_{\rm homeo}$
+\STATE Extract gradients $G_j \gets \nabla_{W_Q} L_j$ (repeat for $W_V$)
+\STATE Mean $\bar{G}$, truncated SVD $\bar{G}_r$, LoRA factorization $BA$, norm clip to $\delta_{\max}$
+\STATE Update live $\theta \gets \theta + \alpha \Delta W$; shadow $\theta_{\rm shadow} \gets (1-\beta)\theta_{\rm shadow} + \beta \theta$
 \end{algorithmic}
 \end{algorithm}
 
