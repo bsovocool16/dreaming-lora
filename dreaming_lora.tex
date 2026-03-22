@@ -127,7 +127,7 @@ What the architecture does guarantee, regardless of the rank question, is that t
 
 The gradient-space formulation (\S 3.2--3.4) specifies \textit{how} the consolidation update is computed (truncated SVD on the mean gradient) but leaves unspecified \textit{what loss function} generates the per-dream gradients. The neuroscience of sleep consolidation suggests that the loss should be composite, with components corresponding to functionally distinct sleep stages, and that the balance between components should be self-regulating rather than externally scheduled.
 
-\subsubsection*{Three components.}
+\subsubsection*{Components.}
 
 \textbf{Reconstruction loss} (NREM/SWS analog). Standard next-token prediction on the salient tokens within each chimeric dream sequence:
 \begin{equation}
@@ -165,8 +165,7 @@ However, naive $\rho$-based regulation would make immature adapters reconstructi
 \begin{equation}
     \lambda_\text{recon} = \frac{\mu \rho}{1 + \lambda_\text{base}}, \qquad \lambda_\text{cohere} = \frac{1 - \mu\rho + \lambda_\text{base}}{1 + \lambda_\text{base}},
 \end{equation}
-where $\lambda_\text{base}$ (default 0.1) is a coherence floor ensuring that some abstraction always occurs regardless of reconstruction pressure---analogous to the biological observation that REM sleep is never zero, even in NREM-dominant early sleep cycles. The composite loss is then:
-The experiential composite loss used to generate the per-dream gradients for SVD consolidation is:
+where $\lambda_\text{base}$ (default 0.1) is a coherence floor ensuring that some abstraction always occurs regardless of reconstruction pressure---analogous to the biological observation that REM sleep is never zero, even in NREM-dominant early sleep cycles. The experiential composite loss used to generate the per-dream gradients for SVD consolidation is:
 \begin{equation}
     L_\text{total} = \lambda_\text{recon} \cdot L_\text{recon} + \lambda_\text{cohere} \cdot L_\text{cohere}.
 \end{equation}
@@ -440,7 +439,7 @@ The specific integration we propose does not appear in the existing literature. 
     \item The specification of dream content generation as adapter-biased context transplantation with anti-bias correction, where the adapter's own receptive field defines the importance-sampling distribution and the adapted/base model loss ratio corrects for confirmation bias.
     \item The identification of the circular co-constitution as a constant-stepsize stochastic approximation with Markovian noise and bounded tracking as the stability target.
     \item The derivation of four disambiguated safeguards from convergence requirements in SA theory and GAN stability analysis.
-    \item A single endogenous maturity signal (adapter Frobenius norm) that governs the developmental trajectory across all components of the architecture: noise covariance, importance-weight regime, salience selection, and the reconstruction/coherence loss balance---the last of which was corrected by the infant-sleep inversion, where taking the biological data seriously revealed that the computationally naive balance was wrong.
+    \item A single endogenous maturity signal (combined effective deformation norm, gauge-invariant) that governs the developmental trajectory across all components of the architecture: noise covariance, importance-weight regime, salience selection, and the reconstruction/coherence loss balance---the last of which was corrected by the infant-sleep inversion, where taking the biological data seriously revealed that the computationally naive balance was wrong.
     \item The identification of a three-phase developmental trajectory (curriculum, transition, mature consolidation), with the recognition that the self-induced dreaming mechanism requires externally-supervised initialization to avoid path-dependent snowballing of arbitrary early commitments.
 \end{enumerate}
 
@@ -455,7 +454,7 @@ The specific integration we propose does not appear in the existing literature. 
 
 \textbf{Composite loss calibration.} The contrastive coherence loss (\S 3.6) requires a temperature parameter $\tau$ that controls the sharpness of the contrastive signal, and the homeostatic decay rate $\eta$ sets the timescale of forgetting---how quickly an unreinforced adapter relaxes toward exploration. Both interact with the self-regulating $\rho$ balance in ways that may require joint tuning. Additionally, the coherence floor $\lambda_\text{base}$ prevents perpetual cramming under sustained moderate novelty, but the optimal value depends on how frequently the system encounters genuinely novel domains versus routine content.
 
-\textbf{Compute cost scaling.} The consolidation loop (Algorithm~\ref{alg:consolidation}) requires two forward passes per candidate context (one through the adapted model, one through the base model, for the anti-bias correction in step~4), plus one forward pass and one backward pass per chimeric dream sequence (steps~8--9). Total per-cycle cost is therefore roughly $(2n + 2n')$ forward-pass equivalents, where $n$ is the number of candidate contexts and $n'$ is the number selected for dreaming. For toy experiments this is tractable. For production deployment with large models and frequent consolidation, this is the dominant cost bottleneck and will likely require approximations---e.g., amortizing the base-model forward passes across consolidation cycles, caching base-model losses for frequently-generated context types, or using a smaller distilled model as a proxy for the base-model loss computation.
+\textbf{Compute cost scaling.} The consolidation loop (Algorithm~\ref{alg:consolidation}) requires two forward passes per candidate context (one through the adapted model, one through the base model, for the anti-bias correction), plus one forward pass and one backward pass per chimeric dream sequence. Total per-cycle cost is therefore roughly $(2n + 2n')$ forward-pass equivalents, where $n$ is the number of candidate contexts and $n'$ is the number selected for dreaming. For toy experiments this is tractable. For production deployment with large models and frequent consolidation, this is the dominant cost bottleneck and will likely require approximations---e.g., amortizing the base-model forward passes across consolidation cycles, caching base-model losses for frequently-generated context types, or using a smaller distilled model as a proxy for the base-model loss computation.
 
 \textbf{Gradient materialization cost.} The consolidation pipeline requires materializing the full gradient matrix $G_j \in \R^{d_\text{out} \times d_\text{in}}$ for each dream sequence, then computing a truncated SVD on the mean of these dense matrices. For the projection dimensions typical of large transformers, this dense materialization circumvents the memory efficiency that motivates using LoRA in the first place. Production-scale deployment will likely require either operating natively in the adapter's low-rank subspace (e.g., computing gradients with respect to the LoRA factors directly and projecting within that subspace) or employing randomized SVD algorithms that avoid materializing the full gradient matrix. The tradeoff between gradient-space fidelity and computational tractability is an important engineering question for any empirical implementation.
 
