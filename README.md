@@ -1,59 +1,63 @@
 # Dreaming LoRA
 
-**A Biologically-Motivated Memory Architecture for Transformers**
+**Cross-Session Memory Through Offline Episodic Consolidation**
 
 Ben Sovocool · Developed in collaboration with Claude (Anthropic)
 
-Working Draft — March 2026
+Working Draft — April 2026
 
 ---
 
-## Summary
+## What This Is
 
-Current LLMs have no mechanism for experiential memory that persists across conversations and modifies processing. Context injection gives models a cheat sheet; it doesn't reshape how they think. This paper proposes an architecture that bridges short-term and long-term memory through a consolidation mechanism analogous to sleep.
+Recent work on gradient-based test-time memorization—Titans, Atlas, Memory Caching, unified under the Miras framework—has established that transformer-based language models can be augmented with persistent memory updated via surprise-driven gradient descent during inference. This line of work has scoped itself explicitly to within-context operation: memory accumulates structure over long sequences but does not persist across separate conversations.
 
-The core idea: the transformer's K/V cache functions as transient working memory. A LoRA adapter — a small, low-rank modification to the attention weights — functions as persistent long-term memory by deforming *how the model pays attention*, not by storing facts. A "dreaming" process transfers information between the two: after each conversation, the system generates structured variations of surprising content via adapter-biased context transplantation, extracts the consistent gradient signal across those variations via truncated SVD, and applies the result as a small adapter update. Memory becomes altered perception, not stored content.
+This paper proposes Dreaming LoRA, an architectural extension addressing cross-session memory through offline episodic consolidation. The architecture maintains the K/V cache as transient contextual memory, adds a LoRA adapter as persistent cross-session memory encoded as structural deformation of attention geometry, and introduces a between-conversation consolidation phase—dreaming—that updates the adapter from self-generated replay content. Memory is altered perception, not stored content; the adapter does not record what happened, it changes how the system processes future experience.
 
-The experiential consolidation loss is composite: reconstruction (next-token prediction) and representational coherence (contrastive alignment across dream contexts), with the balance self-regulated by the spectral energy of the mean gradient modulated by adapter maturity — a design motivated by the infant-sleep inversion and independently justified by the cold-start dynamics of the architecture. Homeostatic weight decay is applied directly to the LoRA factors after the SVD update, ensuring it does not compete with experiential signal for the rank-constrained gradient subspace.
+The paper develops the consolidation objective in factor-native LoRA subspace, a composite loss with reconstruction and Fisher-discriminant coherence components, and a stability analysis based on bounded tracking from constant-stepsize stochastic approximation with Markovian noise. An empirical program testing specific predictions from each contribution is outlined.
 
-The paper analyzes stability via constant-stepsize stochastic approximation with Markovian noise, argues for bounded tracking rather than fixed-point convergence, identifies a three-phase developmental trajectory (curriculum → transition → mature consolidation), and derives all scheduling from a single gauge-invariant maturity signal (combined effective deformation norm across Q and V projections).
+## Three Contributions
+
+**Cross-session persistence requires offline episodic consolidation.** Online updates during forward passes—as in Titans and Atlas—do not address the structural revision that cross-session learning requires. An offline consolidation phase operating on self-generated replay content addresses this; a three-phase developmental trajectory addresses the cold-start pathology of a self-reinforcing consolidation loop.
+
+**Cross-session symbolic operation requires coherence in attentional bias.** Reconstruction-family attentional biases populating the Miras framework preserve local prediction regularities but do not produce cross-context representational consistency. A coherence-family attentional bias rewarding region-level consistency of same-content representations across contexts extends the Miras signature to accommodate cross-context objectives.
+
+**Bounded tracking is the appropriate stability framing for persistent learning systems.** Current work demonstrates empirical stability through careful mechanism design without a theoretical account of what stability means in this setting. Bounded tracking—ergodic concentration around stable attractors with dispersion scaling with the stepsize—is the appropriate target. The framework applies to the full family of gradient-based persistent memory architectures, not only to the proposal developed here.
+
+## Status
+
+The architecture is currently theoretical. An empirical program is outlined in §8 of the paper, with three central experiments: a stability simulation testing the bounded-tracking thesis on a toy adapter, a cross-session benchmark comparing offline consolidation against an online baseline, and a coherence-loss validation isolating the contribution of cross-context representational consistency. The simulation is the immediate next step. Implementation code will appear in this repo when written; the repo will remain paper-only until then.
 
 ## Files
 
-- **[dreaming_lora.pdf](dreaming_lora.pdf)** — The paper (v5.2, 23 pages)
-- **[dreaming_lora.tex](dreaming_lora.tex)** — LaTeX source
+- **[dreaming_lora.pdf](./dreaming_lora.pdf)** — The paper
+- **[dreaming_lora.tex](./dreaming_lora.tex)** — LaTeX source
+- **[CITATION.cff](./CITATION.cff)** — Citation metadata
 
-## What Changed
+## Revision History
 
-### v5.2 — Third review response (claims calibration)
-
-- **SVD caveat upgraded:** Now explicitly positioned as the least principled component of the pipeline — curvature-blind, chosen for simplicity/interpretability over optimality. Hessian/Fisher alternatives named concretely
-- **Coherence loss limitation acknowledged:** InfoNCE's tendency toward context-insensitivity in the low-temperature limit is now stated as a known risk, not defended away. Variance-bounded and Fisher discriminant alternatives suggested
-- **Stability analysis scoped as aspirational:** Safeguards are necessary conditions argued by analogy; joint sufficiency is undemonstrated. GAN analogy noted as cutting both ways
-- **μ limitation sharpened:** "Known architectural weakness" — narrow over-commitment and broad calibration are indistinguishable. Spectral maturity signal would require redesigning §5.2/5.5
-- **Biological correspondences pruned:** Table cut from 16 to 11, removing purely metaphorical mappings (shadow adapter/character, embedding noise/stochastic firing, trust region/trauma, rank/synaptic modification). Caption explains omissions
-- **Infant-sleep claim softened:** "Biology suggested the correction; cold-start dynamics justify it independently" — throughout §6, novel contributions, and conclusion
-- **New failure modes in §8:** Chimeric sequence construction underspecification, adversarial/garbage input vulnerability, multi-layer consolidation considerations
-
-### v5 / v5.1 — First and second review responses
-
-- **Gauge invariance fix:** All scheduling depends on ||BA||_F not ||A||_F
-- **V projection incorporated:** μ and noise use combined Q+V deformation norm
-- **Homeostatic loss separated** from gradient pipeline
-- **Two-timescale SA reframed** as single-timescale with Markovian noise
-- **Rank growth addressed** via periodic re-projection
-- **ρ circularity resolved** via one-cycle lag with explicit initialization
-- **Anti-bias correction reframed** as stabilized hard-example mining heuristic
-- **All equation cross-references verified**
-- **Sleep-time compute** (Lin et al. 2025) cited and distinguished
-
-### v4 — Composite consolidation objective
-
-- Three-component loss (reconstruction, coherence, homeostatic) with self-regulating balance
-- Infant-sleep inversion correction
-- Homeostatic rejuvenation dynamics
-- Coherence floor (λ_base)
+This is a substantial revision of an earlier (March 2026) draft. The current version reflects engagement with the Miras framework line of work (Behrouz et al., 2024–2026), which had developed gradient-based test-time memorization into a comprehensive within-context framework that the original draft did not adequately position against. Major changes include reformulating the consolidation objective in factor-native LoRA subspace (replacing gradient-space SVD with rank as adapter capacity), replacing the InfoNCE coherence loss with a Fisher-discriminant formulation, splitting structural and experiential maturity into two distinct signals, restructuring the stability analysis around bounded tracking as a single-timescale framework, and reframing biological correspondences as supporting rather than load-bearing. The earlier draft is preserved in git history.
 
 ## How This Was Made
 
-I'm a practicing lawyer, not an academic. This was an iterative process with Claude (Anthropic) and adversarial review from multiple LLMs, starting from a philosophical analysis of biological memory and progressively formalizing. The architecture is theoretical — no experiments yet, which is where I run out of road. Comments, criticism, and especially empirical collaborations are very welcome.
+I'm a practicing lawyer, not an academic. This was an iterative process with Claude (Opus 4.6 for v1, then primarily Opus 4.7 for the substantial revision), starting with a philosophical analysis of biological memory and phenomenological reports (i.e., my own self-reporting), and then formalized. Some off-task use of my work Copilot account for review. Comments, criticism, and revisions are 100% welcome.
+
+## Citing This Work
+
+```bibtex
+@misc{sovocool2026dreaminglora,
+  title={Dreaming LoRA: Cross-Session Memory Through Offline Episodic Consolidation},
+  author={Sovocool, Ben},
+  year={2026},
+  note={Working draft, April 2026},
+  url={https://github.com/bsovocool16/dreaming-lora}
+}
+```
+
+## Contact
+
+Issues and pull requests are open. For substantive feedback, the issue tracker on this repo is the right place.
+
+## License
+
+The paper is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](./LICENSE).

@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "Dreaming LoRA: Cross-Session Memory Through Offline Episodic Consolidation"
+message: "If you reference this work, please cite it as below."
+authors:
+  - family-names: Sovocool
+    given-names: Ben
+type: article
+date-released: 2026-04-30
+url: "https://github.com/bsovocool16/dreaming-lora"
+abstract: >-
+  An architectural extension of the Miras framework addressing cross-session
+  memory through offline episodic consolidation. The architecture maintains the
+  K/V cache as transient contextual memory, adds a LoRA adapter as persistent
+  cross-session memory encoded as structural deformation of attention geometry,
+  and introduces a between-conversation consolidation phase—dreaming—that
+  updates the adapter from self-generated replay content. Three contributions
+  extend the Miras framework: offline consolidation with developmental
+  scaffolding for cross-session learning; a Fisher-discriminant coherence loss
+  for cross-session symbolic operation; and bounded tracking as the appropriate
+  stability framing for the family of gradient-based persistent memory
+  architectures.
+keywords:
+  - transformer
+  - LoRA
+  - persistent memory
+  - test-time memorization
+  - consolidation
+  - stochastic approximation
+  - bounded tracking
+license: CC-BY-4.0
