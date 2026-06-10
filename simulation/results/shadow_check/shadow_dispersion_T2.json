@@ -1,0 +1,47 @@
+{
+  "fixed": {
+    "live_dispersion": 0.21434586711768908,
+    "shadow_dispersion": 0.1315455353471548,
+    "mean_live_to_shadow_dist": 0.16498682406213336,
+    "live_dispersion_std": 0.0003515151831142481,
+    "shadow_dispersion_std": 0.0006275233896992765,
+    "mean_live_to_shadow_dist_std": 0.00030944641963721994,
+    "shadow_over_live_ratio": 0.6137068893188792
+  },
+  "state_dep_g1": {
+    "live_dispersion": 0.1885622002030123,
+    "shadow_dispersion": 0.11547923810923078,
+    "mean_live_to_shadow_dist": 0.1451663621187519,
+    "live_dispersion_std": 0.001542175194691963,
+    "shadow_dispersion_std": 0.0008526556212798285,
+    "mean_live_to_shadow_dist_std": 0.0012242708529185348,
+    "shadow_over_live_ratio": 0.6124198698620509
+  },
+  "state_dep_g3": {
+    "live_dispersion": 0.1729718430397544,
+    "shadow_dispersion": 0.10512628477875356,
+    "mean_live_to_shadow_dist": 0.1337750896208291,
+    "live_dispersion_std": 0.0014995653258617282,
+    "shadow_dispersion_std": 0.0010866972173103615,
+    "mean_live_to_shadow_dist_std": 0.0009869683850052893,
+    "shadow_over_live_ratio": 0.6077653040592983
+  },
+  "sb_tau4": {
+    "live_dispersion": 0.19683702113312096,
+    "shadow_dispersion": 0.1218007122470934,
+    "mean_live_to_shadow_dist": 0.15058404901296088,
+    "live_dispersion_std": 0.0011492483242175168,
+    "shadow_dispersion_std": 0.0008333554536142247,
+    "mean_live_to_shadow_dist_std": 0.0009985991841023134,
+    "shadow_over_live_ratio": 0.6187896542323689
+  },
+  "sb_tau1": {
+    "live_dispersion": 0.2120358874976919,
+    "shadow_dispersion": 0.13034162845221162,
+    "mean_live_to_shadow_dist": 0.16298066021868293,
+    "live_dispersion_std": 0.001250561494677179,
+    "shadow_dispersion_std": 0.001084884858513812,
+    "mean_live_to_shadow_dist_std": 0.0008769309958294222,
+    "shadow_over_live_ratio": 0.6147149427883072
+  }
+}

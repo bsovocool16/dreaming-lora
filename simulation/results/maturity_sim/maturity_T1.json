@@ -1,0 +1,36 @@
+{
+  "tier": 1,
+  "alpha": 0.03,
+  "n_sat": 1000,
+  "final_mu_struct_raw": {
+    "fixed": 0.6324057318312301,
+    "state_dep": 0.6323325016281919,
+    "sb": 0.61472418100496
+  },
+  "final_mu_struct_ratched": {
+    "fixed": 0.64736642027221,
+    "state_dep": 0.6493333413645707,
+    "sb": 0.6505849456553678
+  },
+  "final_mu_exp": 0.9932620530009145,
+  "max_mu_struct_raw": {
+    "fixed": 0.64736642027221,
+    "state_dep": 0.6493333413645707,
+    "sb": 0.6505849456553678
+  },
+  "cycle_at_mu_struct_0p5": {
+    "fixed": 1,
+    "state_dep": 1,
+    "sb": 1
+  },
+  "final_eff_rank": {
+    "fixed": 2,
+    "state_dep": 2,
+    "sb": 2
+  },
+  "final_distance": {
+    "fixed": 0.023128909208296577,
+    "state_dep": 0.023883791639597394,
+    "sb": 0.03318415812838788
+  }
+}
