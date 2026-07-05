@@ -4,7 +4,7 @@
 
 Ben Sovocool · Developed in collaboration with Claude (Anthropic)
 
-Working Draft — June 2026
+Working Draft — July 2026
 
 ---
 
@@ -28,7 +28,7 @@ The paper develops the consolidation objective in factor-native LoRA subspace, a
 
 The stability simulation (§4.4 / §8.1 of the paper) is **complete**: three adapter scales (d=8/r=2 through d=128/r=8), fixed and state-dependent dream distributions, the §5.4 symmetry-breaking sampler, and a sweep of shadow averaging rates. Headline findings: bounded tracking obtains in every non-pathological configuration; the trust region is unambiguously load-bearing at scale; the shadow adapter's measurable role is variance reduction at the readout (1.3×–9× tighter than the live iterate, depending on the averaging rate), with its rotational-damping role constitutively untestable in a single-objective toy; and state-dependent dream coupling is substantive, stabilizing the live iterate and making the rank constraint partially self-enforcing. Simulation code and results are in [`simulation/`](./simulation/).
 
-The remaining central experiments—the cross-session benchmark against an online-consolidation baseline and the coherence-loss validation—are outlined in §8 and are the current work front.
+The **coherence-loss validation has now been run** at three scales — linear regime, toy transformer, and a pretrained 1.5B-parameter instruct model (code and results in [`coherence_program/`](./coherence_program/)). Headline findings, reported in §8.1: reconstruction-only consolidation yields *route-bound, dispositional* memory (perfect recall inside trained surface forms, chance-level consumption by independent circuits — while the same facts in context score 0.95+); the coherence objective reliably manufactures the missing cross-context *type structure* at ≤5% reconstruction cost, replicating from toys to the real model; and whether type structure unlocks functional consumption by other circuits remains an explicitly open prediction. The safeguard ablations measured the forgetting tradeoffs (homeostatic decay is the efficient mitigation; the trust region's role is divergence, not forgetting). The remaining central experiment — the cross-session benchmark against an online-consolidation baseline — is outlined in §8, with a dispositional-memory evaluation (where parametric memory is predicted to beat context stores) as the next work front.
 
 ## Concurrent Work
 
@@ -39,9 +39,12 @@ This revision engages with two concurrent papers titled "Language Models Need Sl
 - **[dreaming_lora.pdf](./dreaming_lora.pdf)** — The paper
 - **[dreaming_lora.tex](./dreaming_lora.tex)** — LaTeX source
 - **[simulation/](./simulation/)** — Stability simulation code, results, and reports
+- **[coherence_program/](./coherence_program/)** — Coherence-loss validation program (three scales), safeguards grid, and the pivotal real-LM experiment
 - **[CITATION.cff](./CITATION.cff)** — Citation metadata
 
 ## Revision History
+
+**July 2026.** Reports first results from the coherence-loss validation program (§3.4, §7, §8.1, §9 recut around the use/reusability distinction: reconstruction installs routes, coherence installs type tokens); adds the continual-PEFT positioning (O-LoRA lineage, Lin et al., Biderman et al.), representation-consistency lineage (Co²L, SDRL, drift compensation), and the migration corollary (Trans-LoRA, PorTAL: the dreaming mechanism doubles as its own migration-corpus generator); releases the full experimental program in `coherence_program/`.
 
 **June 2026.** Integrates the completed stability-simulation program: §2.5 (shadow averaging rate as a tuning knob), §4.3.3 (shadow's two roles separated: measured readout variance reduction vs. theoretically-motivated rotational damping), §4.4 and §8.1 (full multi-scale results, including state-dependent dream coupling and the corrected shadow-ablation methodology), §5.2 (tier-dependent Phase 1 thresholds; fraction-of-saturation rule), §5.6 (empirical confirmation that co-constitutive coupling is substantive). Adds engagement with the two concurrent "Language Models Need Sleep" papers in §1 and §7.
 
@@ -60,7 +63,7 @@ I'm a practicing lawyer, not an academic. This has been an iterative process wit
   title={Dreaming LoRA: Cross-Session Memory Through Offline Episodic Consolidation},
   author={Sovocool, Ben},
   year={2026},
-  note={Working draft, June 2026},
+  note={Working draft, July 2026},
   url={https://github.com/bsovocool16/dreaming-lora}
 }
 ```

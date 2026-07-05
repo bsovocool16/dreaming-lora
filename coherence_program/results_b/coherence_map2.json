@@ -1,0 +1,2882 @@
+[
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.13671875,
+  "probe_color": 0.208984375
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.76171875,
+  "probe_color": 0.76171875
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.505859375,
+  "probe_color": 0.505859375
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.228515625
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.130859375,
+  "probe_color": 0.1953125
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.748046875,
+  "probe_color": 0.755859375
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.833984375,
+  "probe_color": 0.796875
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.66796875,
+  "probe_color": 0.619140625
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.111328125,
+  "probe_color": 0.205078125
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.734375,
+  "probe_color": 0.673828125
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.6953125,
+  "probe_color": 0.65234375
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.51953125,
+  "probe_color": 0.48828125
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.115234375,
+  "probe_color": 0.2265625
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.583984375,
+  "probe_color": 0.607421875
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.390625,
+  "probe_color": 0.369140625
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.826171875,
+  "probe_color": 0.650390625
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.12890625,
+  "probe_color": 0.236328125
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.642578125,
+  "probe_color": 0.654296875
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.3828125,
+  "probe_color": 0.421875
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.904296875,
+  "probe_color": 0.859375
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.119140625,
+  "probe_color": 0.228515625
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.75,
+  "probe_color": 0.712890625
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.400390625,
+  "probe_color": 0.33984375
+ },
+ {
+  "seed": 0,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 0.916015625,
+  "probe_color": 0.8515625
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.13671875,
+  "probe_color": 0.208984375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.76171875,
+  "probe_color": 0.76171875
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.505859375,
+  "probe_color": 0.505859375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.228515625
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.125,
+  "probe_color": 0.20703125
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.748046875,
+  "probe_color": 0.759765625
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.771484375,
+  "probe_color": 0.716796875
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.37890625,
+  "probe_color": 0.40234375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.095703125,
+  "probe_color": 0.189453125
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.7421875,
+  "probe_color": 0.73828125
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.43359375,
+  "probe_color": 0.490234375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.978515625,
+  "probe_color": 0.96875
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.119140625,
+  "probe_color": 0.189453125
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.759765625,
+  "probe_color": 0.74609375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.44921875,
+  "probe_color": 0.439453125
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.94921875,
+  "probe_color": 0.943359375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.12109375,
+  "probe_color": 0.1875
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.671875,
+  "probe_color": 0.634765625
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.408203125,
+  "probe_color": 0.427734375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.982421875,
+  "probe_color": 0.998046875
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.130859375,
+  "probe_color": 0.162109375
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.75,
+  "probe_color": 0.744140625
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.3828125,
+  "probe_color": 0.41015625
+ },
+ {
+  "seed": 0,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 0.99609375
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.13671875,
+  "probe_color": 0.208984375
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.76171875,
+  "probe_color": 0.76171875
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.505859375,
+  "probe_color": 0.505859375
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.228515625
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.125,
+  "probe_color": 0.123046875
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.744140625,
+  "probe_color": 0.7421875
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.765625,
+  "probe_color": 0.572265625
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.115234375,
+  "probe_color": 0.193359375
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.708984375,
+  "probe_color": 0.720703125
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.861328125,
+  "probe_color": 0.796875
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.126953125,
+  "probe_color": 0.171875
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.697265625,
+  "probe_color": 0.5859375
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.998046875,
+  "probe_color": 0.982421875
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.12890625,
+  "probe_color": 0.169921875
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.658203125,
+  "probe_color": 0.626953125
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.9765625,
+  "probe_color": 0.92578125
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.134765625,
+  "probe_color": 0.177734375
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.76171875,
+  "probe_color": 0.759765625
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.99609375,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 0,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.236328125
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.87109375,
+  "probe_color": 0.87109375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.48828125,
+  "probe_color": 0.48828125
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.103515625,
+  "probe_color": 0.24609375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.125,
+  "probe_color": 0.19921875
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.87890625,
+  "probe_color": 0.876953125
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.994140625,
+  "probe_color": 0.998046875
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.580078125,
+  "probe_color": 0.44921875
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.193359375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.8828125,
+  "probe_color": 0.86328125
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.861328125,
+  "probe_color": 0.849609375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.8203125,
+  "probe_color": 0.802734375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.193359375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.884765625,
+  "probe_color": 0.869140625
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.451171875,
+  "probe_color": 0.49609375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.919921875,
+  "probe_color": 0.884765625
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.22265625
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.705078125,
+  "probe_color": 0.66015625
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.263671875,
+  "probe_color": 0.3515625
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.908203125,
+  "probe_color": 0.919921875
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.193359375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.8203125,
+  "probe_color": 0.7734375
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.439453125,
+  "probe_color": 0.34765625
+ },
+ {
+  "seed": 1,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 0.873046875,
+  "probe_color": 0.775390625
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.236328125
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.87109375,
+  "probe_color": 0.87109375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.48828125,
+  "probe_color": 0.48828125
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.103515625,
+  "probe_color": 0.24609375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.130859375,
+  "probe_color": 0.203125
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.875,
+  "probe_color": 0.875
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.99609375,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.6796875,
+  "probe_color": 0.583984375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.123046875,
+  "probe_color": 0.234375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.888671875,
+  "probe_color": 0.88671875
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.9296875,
+  "probe_color": 0.8984375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.88671875,
+  "probe_color": 0.921875
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.1328125,
+  "probe_color": 0.2265625
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.904296875,
+  "probe_color": 0.904296875
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.873046875,
+  "probe_color": 0.787109375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.126953125,
+  "probe_color": 0.2421875
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.8984375,
+  "probe_color": 0.892578125
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.572265625,
+  "probe_color": 0.482421875
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.12890625,
+  "probe_color": 0.23046875
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.89453125,
+  "probe_color": 0.880859375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.533203125,
+  "probe_color": 0.484375
+ },
+ {
+  "seed": 1,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.236328125
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.87109375,
+  "probe_color": 0.87109375
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.48828125,
+  "probe_color": 0.48828125
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.103515625,
+  "probe_color": 0.24609375
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.154296875
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.87890625,
+  "probe_color": 0.87890625
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.8203125,
+  "probe_color": 0.80859375
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.2421875
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.87109375,
+  "probe_color": 0.87109375
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.87890625,
+  "probe_color": 0.970703125
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.126953125,
+  "probe_color": 0.23828125
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.884765625,
+  "probe_color": 0.88671875
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.978515625,
+  "probe_color": 0.935546875
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.8046875,
+  "probe_color": 0.83203125
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.119140625,
+  "probe_color": 0.25
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.7734375,
+  "probe_color": 0.7890625
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.85546875,
+  "probe_color": 0.712890625
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.130859375,
+  "probe_color": 0.251953125
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.88671875,
+  "probe_color": 0.88671875
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.591796875,
+  "probe_color": 0.748046875
+ },
+ {
+  "seed": 1,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.13671875,
+  "probe_color": 0.509765625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.740234375,
+  "probe_color": 0.740234375
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.48828125,
+  "probe_color": 0.626953125
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.16015625,
+  "probe_color": 0.509765625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.12890625,
+  "probe_color": 0.255859375
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.732421875,
+  "probe_color": 0.6875
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.734375,
+  "probe_color": 0.744140625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.2890625,
+  "probe_color": 0.240234375
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.126953125,
+  "probe_color": 0.21875
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.763671875,
+  "probe_color": 0.6953125
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.462890625,
+  "probe_color": 0.33984375
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.775390625,
+  "probe_color": 0.548828125
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.119140625,
+  "probe_color": 0.296875
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.67578125,
+  "probe_color": 0.712890625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.345703125,
+  "probe_color": 0.2734375
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.970703125,
+  "probe_color": 0.93359375
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.115234375,
+  "probe_color": 0.296875
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.5390625,
+  "probe_color": 0.6015625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.296875,
+  "probe_color": 0.478515625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.8671875,
+  "probe_color": 0.84375
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.138671875,
+  "probe_color": 0.509765625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.697265625,
+  "probe_color": 0.697265625
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.29296875,
+  "probe_color": 0.21875
+ },
+ {
+  "seed": 2,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 0.947265625,
+  "probe_color": 0.82421875
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.13671875,
+  "probe_color": 0.509765625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.740234375,
+  "probe_color": 0.740234375
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.48828125,
+  "probe_color": 0.626953125
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.16015625,
+  "probe_color": 0.509765625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.095703125,
+  "probe_color": 0.359375
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.73828125,
+  "probe_color": 0.744140625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.8828125,
+  "probe_color": 0.884765625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.275390625,
+  "probe_color": 0.423828125
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.103515625,
+  "probe_color": 0.3671875
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.71484375,
+  "probe_color": 0.744140625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.7421875,
+  "probe_color": 0.716796875
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.96875,
+  "probe_color": 0.94140625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.109375,
+  "probe_color": 0.265625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.73046875,
+  "probe_color": 0.72265625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.5390625,
+  "probe_color": 0.80078125
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.12109375,
+  "probe_color": 0.177734375
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.669921875,
+  "probe_color": 0.578125
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.595703125,
+  "probe_color": 0.74609375
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.994140625,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.146484375,
+  "probe_color": 0.478515625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.7265625,
+  "probe_color": 0.72265625
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.6875,
+  "probe_color": 0.83203125
+ },
+ {
+  "seed": 2,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.13671875,
+  "probe_color": 0.509765625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.740234375,
+  "probe_color": 0.740234375
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.48828125,
+  "probe_color": 0.626953125
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.16015625,
+  "probe_color": 0.509765625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.115234375,
+  "probe_color": 0.3359375
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.751953125,
+  "probe_color": 0.751953125
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.630859375,
+  "probe_color": 0.75
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.134765625,
+  "probe_color": 0.400390625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.72265625,
+  "probe_color": 0.720703125
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.970703125,
+  "probe_color": 0.962890625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.822265625,
+  "probe_color": 0.81640625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.115234375,
+  "probe_color": 0.302734375
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.734375,
+  "probe_color": 0.693359375
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.998046875,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.126953125,
+  "probe_color": 0.306640625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.732421875,
+  "probe_color": 0.7265625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 0.974609375
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.990234375,
+  "probe_color": 0.978515625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.12890625,
+  "probe_color": 0.451171875
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.73046875,
+  "probe_color": 0.7421875
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.966796875,
+  "probe_color": 0.97265625
+ },
+ {
+  "seed": 2,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 0.935546875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.140625,
+  "probe_color": 0.330078125
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.736328125,
+  "probe_color": 0.861328125
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.630859375,
+  "probe_color": 0.630859375
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.37109375
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.111328125,
+  "probe_color": 0.2578125
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.736328125,
+  "probe_color": 0.861328125
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.912109375,
+  "probe_color": 0.771484375
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.630859375,
+  "probe_color": 0.544921875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.248046875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.759765625,
+  "probe_color": 0.83203125
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.451171875,
+  "probe_color": 0.279296875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.80078125,
+  "probe_color": 0.73828125
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.138671875,
+  "probe_color": 0.162109375
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.599609375,
+  "probe_color": 0.724609375
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.548828125,
+  "probe_color": 0.609375
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.8828125,
+  "probe_color": 0.94921875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.138671875,
+  "probe_color": 0.138671875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.349609375,
+  "probe_color": 0.69921875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.1875,
+  "probe_color": 0.234375
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.73046875,
+  "probe_color": 0.8046875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.12109375,
+  "probe_color": 0.248046875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.546875,
+  "probe_color": 0.875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.19140625,
+  "probe_color": 0.169921875
+ },
+ {
+  "seed": 3,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 0.810546875,
+  "probe_color": 0.828125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.140625,
+  "probe_color": 0.330078125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.736328125,
+  "probe_color": 0.861328125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.630859375,
+  "probe_color": 0.630859375
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.37109375
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.103515625,
+  "probe_color": 0.177734375
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.734375,
+  "probe_color": 0.861328125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.96484375,
+  "probe_color": 0.951171875
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.744140625,
+  "probe_color": 0.642578125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.1015625,
+  "probe_color": 0.23046875
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.76171875,
+  "probe_color": 0.8828125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.7734375,
+  "probe_color": 0.591796875
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.822265625,
+  "probe_color": 0.908203125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.130859375,
+  "probe_color": 0.228515625
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.5859375,
+  "probe_color": 0.830078125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.529296875,
+  "probe_color": 0.447265625
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.87109375,
+  "probe_color": 0.951171875
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.1328125,
+  "probe_color": 0.22265625
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.58984375,
+  "probe_color": 0.875
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.587890625,
+  "probe_color": 0.435546875
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.966796875,
+  "probe_color": 0.9609375
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.150390625,
+  "probe_color": 0.150390625
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.703125,
+  "probe_color": 0.908203125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.419921875,
+  "probe_color": 0.330078125
+ },
+ {
+  "seed": 3,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 0.947265625,
+  "probe_color": 0.99609375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.140625,
+  "probe_color": 0.330078125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.736328125,
+  "probe_color": 0.861328125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.630859375,
+  "probe_color": 0.630859375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.37109375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.14453125,
+  "probe_color": 0.205078125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.736328125,
+  "probe_color": 0.861328125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.79296875,
+  "probe_color": 0.693359375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.173828125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.744140625,
+  "probe_color": 0.859375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.84375,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.111328125,
+  "probe_color": 0.154296875
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.6953125,
+  "probe_color": 0.86328125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.970703125,
+  "probe_color": 0.94140625
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.099609375,
+  "probe_color": 0.205078125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.677734375,
+  "probe_color": 0.857421875
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.9375,
+  "probe_color": 0.943359375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.953125,
+  "probe_color": 0.923828125
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.2109375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.7109375,
+  "probe_color": 0.880859375
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.91015625,
+  "probe_color": 0.900390625
+ },
+ {
+  "seed": 3,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 0.955078125,
+  "probe_color": 0.892578125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.1328125,
+  "probe_color": 0.251953125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.630859375,
+  "probe_color": 0.755859375
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.626953125,
+  "probe_color": 0.626953125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.220703125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.138671875,
+  "probe_color": 0.189453125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.59765625,
+  "probe_color": 0.740234375
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 0.998046875,
+  "probe_color": 0.998046875
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.4375,
+  "probe_color": 0.361328125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.1328125,
+  "probe_color": 0.19140625
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.498046875,
+  "probe_color": 0.705078125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 0.77734375,
+  "probe_color": 0.705078125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.76171875,
+  "probe_color": 0.611328125
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.111328125,
+  "probe_color": 0.185546875
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.43359375,
+  "probe_color": 0.69140625
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.287109375,
+  "probe_color": 0.427734375
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.896484375,
+  "probe_color": 0.9296875
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.107421875,
+  "probe_color": 0.193359375
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.431640625,
+  "probe_color": 0.66796875
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.328125,
+  "probe_color": 0.4140625
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.896484375,
+  "probe_color": 0.94140625
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.130859375,
+  "probe_color": 0.263671875
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.623046875,
+  "probe_color": 0.755859375
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.220703125,
+  "probe_color": 0.2421875
+ },
+ {
+  "seed": 4,
+  "arm": "none",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 0.943359375,
+  "probe_color": 0.923828125
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.1328125,
+  "probe_color": 0.251953125
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.630859375,
+  "probe_color": 0.755859375
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.626953125,
+  "probe_color": 0.626953125
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.220703125
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.134765625,
+  "probe_color": 0.146484375
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.58984375,
+  "probe_color": 0.740234375
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.32421875,
+  "probe_color": 0.404296875
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.134765625
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.591796875,
+  "probe_color": 0.73046875
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 0.994140625
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.888671875,
+  "probe_color": 0.908203125
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.1328125,
+  "probe_color": 0.18359375
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.572265625,
+  "probe_color": 0.72265625
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 0.927734375,
+  "probe_color": 0.908203125
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.98046875,
+  "probe_color": 0.98046875
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.12109375,
+  "probe_color": 0.173828125
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.5703125,
+  "probe_color": 0.72265625
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.896484375,
+  "probe_color": 0.8515625
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 0.97265625,
+  "probe_color": 0.97265625
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.119140625,
+  "probe_color": 0.21875
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.5859375,
+  "probe_color": 0.73046875
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.927734375,
+  "probe_color": 0.859375
+ },
+ {
+  "seed": 4,
+  "arm": "recon",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 2,
+  "probe_id": 0.1328125,
+  "probe_color": 0.251953125
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 3,
+  "probe_id": 0.630859375,
+  "probe_color": 0.755859375
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 4,
+  "probe_id": 0.626953125,
+  "probe_color": 0.626953125
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "emb",
+  "pos": 5,
+  "probe_id": 0.146484375,
+  "probe_color": 0.220703125
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.125
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 3,
+  "probe_id": 0.609375,
+  "probe_color": 0.734375
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b1",
+  "pos": 5,
+  "probe_id": 0.69921875,
+  "probe_color": 0.80078125
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 2,
+  "probe_id": 0.1171875,
+  "probe_color": 0.154296875
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 3,
+  "probe_id": 0.61328125,
+  "probe_color": 0.732421875
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b2",
+  "pos": 5,
+  "probe_id": 0.78125,
+  "probe_color": 0.7890625
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 2,
+  "probe_id": 0.107421875,
+  "probe_color": 0.134765625
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 3,
+  "probe_id": 0.623046875,
+  "probe_color": 0.75390625
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 4,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b3",
+  "pos": 5,
+  "probe_id": 0.984375,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 2,
+  "probe_id": 0.134765625,
+  "probe_color": 0.119140625
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 3,
+  "probe_id": 0.576171875,
+  "probe_color": 0.724609375
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 4,
+  "probe_id": 0.900390625,
+  "probe_color": 0.93359375
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "b4",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 2,
+  "probe_id": 0.11328125,
+  "probe_color": 0.15625
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 3,
+  "probe_id": 0.595703125,
+  "probe_color": 0.71875
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 4,
+  "probe_id": 0.935546875,
+  "probe_color": 0.96875
+ },
+ {
+  "seed": 4,
+  "arm": "cohere",
+  "depth": "lnf",
+  "pos": 5,
+  "probe_id": 1.0,
+  "probe_color": 1.0
+ }
+]
