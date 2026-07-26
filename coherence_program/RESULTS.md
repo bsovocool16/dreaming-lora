@@ -437,8 +437,11 @@ Qwen2.5-1.5B, arms recon/cohere/shuffled retrained per exp_e recipe,
 
 **Gate (context condition, natural Δ): passes maximally.** In-context
 facts show binding-specific broadcast at the answer position with
-counterbalanced margins 0.84–1.00 in 5/5 seeds; the mismatched-context
-(copying) control sits at −0.000 (paired t=20.5). Finding in its own
+counterbalanced margins 0.72–1.00 in 5/5 seeds (per-seed
+margin_answer_pre: 0.84, 0.72, 0.87, 1.00, 0.94; an earlier draft of this
+section quoted 0.84–1.00, missing seed 1 — corrected 2026-07-26 against
+results_g.json); the mismatched-context (copying) control is at or below
+zero in every seed (−0.047 to −0.000, paired t=20.5). Finding in its own
 right: workspace-like, binding-specific transport is cleanly measurable
 at 1.5B with a two-forward instrument, and the noise floor is exactly 0
 (fp32 MPS determinism).
