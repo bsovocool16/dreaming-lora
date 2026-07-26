@@ -428,6 +428,46 @@ representational (type) layer without converting dispositions into
 consumable tokens. Facts are the wrong cargo for weights; the
 dispositional experiment (exp_f) is where weights get their home game.
 
+## Experiment G — workspace access of consolidated memory (completed 2026-07-09, analyzed 2026-07-18)
+
+`exp_g_workspace.py` per EXPG_DESIGN.md Revisions 2/2.1 (two methodology
+review rounds; instrument rebuilt after an RMSNorm-degeneracy catch).
+Qwen2.5-1.5B, arms recon/cohere/shuffled retrained per exp_e recipe,
+5 paired seeds.
+
+**Gate (context condition, natural Δ): passes maximally.** In-context
+facts show binding-specific broadcast at the answer position with
+counterbalanced margins 0.84–1.00 in 5/5 seeds; the mismatched-context
+(copying) control sits at −0.000 (paired t=20.5). Finding in its own
+right: workspace-like, binding-specific transport is cleanly measurable
+at 1.5B with a two-forward instrument, and the noise floor is exactly 0
+(fp32 MPS determinism).
+
+**Verdict: G-A — no-broadcast, by the pre-registered rules.** M2 (the
+adapter's natural contribution to answer-position states, layer by
+layer): mid-band margins are machine-zero — max +0.0001 across every
+seed × arm × layer 8–20 (threshold 0.05). The only nonzero signal is
+late-band (≥L24): sporadic, small (max +0.096, one cohere seed), i.e.
+the direct output pathway. Coherence does not buy workspace entry
+(cohere vs shuffled t=1.5 n.s., vs recon t=−0.4 n.s.).
+
+**Reading:** the same model, same questions — context-supplied facts
+flood the broadcast channel (0.84–1.00); adapter-supplied facts
+contribute *nothing* to mid-layer answer states, only a whisper at the
+output layers. Consolidated memory is mechanistically automatic-tier:
+route-boundness, format-boundness, and compositional chance all follow
+from one mechanistic fact, and the type-token layer (probe-legible per
+exp_e) exists without being self-broadcast — legible to outside
+observers, silent inside. "Influence without acquaintance," instrument
+reading: zero.
+
+Caveats: W-lens ≠ J-lens replication (context-local natural differences,
+not corpus-averaged Jacobians; no sparse decomposition); 4 scorable
+single-token cities; one secondary injection cell above 0.05 exists
+(injection was pre-declared instrument-insensitive after the smoke
+delta_fact null — reported for completeness, carries no verdict weight
+per Revision 2.1(b)); n=5 seeds; 1.5B scale only.
+
 ## Honest caveats
 
 - Toy scale throughout (vocab ~100, 8-token sentences, 4 layers); both
