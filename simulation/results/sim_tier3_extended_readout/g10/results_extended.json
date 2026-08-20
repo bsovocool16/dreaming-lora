@@ -1,0 +1,39 @@
+{
+  "tier": 3,
+  "D": 128,
+  "R": 8,
+  "n_cycles": 30000,
+  "n_seeds": 20,
+  "gamma": 1.0,
+  "results_per_alpha": {
+    "0.01": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 20,
+      "live_disp_mean": 0.29758699888138873,
+      "live_disp_std": 0.00884077103365792,
+      "shadow_disp_mean": 0.2376512396817207,
+      "shadow_disp_std": 0.010389624543483774,
+      "live_over_shadow_ratio": 1.2522004904326955,
+      "wall_time_s": 606.5377449989319
+    },
+    "0.02": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 20,
+      "live_disp_mean": 0.4231279302549507,
+      "live_disp_std": 0.0014761384211810034,
+      "shadow_disp_mean": 0.31022599014040647,
+      "shadow_disp_std": 0.0011817603481425935,
+      "live_over_shadow_ratio": 1.363934498406937,
+      "wall_time_s": 605.7684237957001
+    }
+  },
+  "total_wall_time_s": 1212.3064799308777,
+  "C_estimates_live": {
+    "0.01": 2.975869988813887,
+    "0.02": 2.991966287927042
+  },
+  "C_estimates_shadow": {
+    "0.01": 2.3765123968172066,
+    "0.02": 2.1936290132859244
+  }
+}

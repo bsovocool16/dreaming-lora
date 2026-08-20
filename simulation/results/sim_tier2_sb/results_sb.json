@@ -1,0 +1,103 @@
+{
+  "config": {
+    "tier": 2,
+    "D": 32,
+    "R": 4,
+    "batch_size": 32,
+    "n_cycles": 5000,
+    "n_seeds": 10,
+    "shadow_beta": 0.05,
+    "trust_region_default": 1.0,
+    "state_dependent": true,
+    "state_dependent_strength": 1.0,
+    "symmetry_breaking": true,
+    "sb_temperature": 4.0,
+    "sb_oversample": 4
+  },
+  "final_window_dispersion_main": {
+    "0.01": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 10,
+      "mean": 0.10945338903961876,
+      "std": 0.0007512579909643719
+    },
+    "0.03": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 10,
+      "mean": 0.19664306234529605,
+      "std": 0.0012437196948835913
+    },
+    "0.1": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 10,
+      "mean": 0.3909895151270786,
+      "std": 0.003989115371323425
+    }
+  },
+  "scaling_dispersion_vs_alpha": {
+    "0.005": {
+      "mean": 0.09215251926093672,
+      "std": 0.0535230721520235
+    },
+    "0.01": {
+      "mean": 0.10874660236071262,
+      "std": 0.001161568485162189
+    },
+    "0.02": {
+      "mean": 0.15740184173669677,
+      "std": 0.0009275679109060262
+    },
+    "0.05": {
+      "mean": 0.2632544004514199,
+      "std": 0.002232582619279173
+    },
+    "0.1": {
+      "mean": 0.39251816158355246,
+      "std": 0.0039389935118063265
+    },
+    "0.2": {
+      "mean": 0.6028833902478905,
+      "std": 0.008344524382659013
+    },
+    "0.3": {
+      "mean": 0.8283141516937776,
+      "std": 0.012412022231627023
+    }
+  },
+  "ablation_dispersion": {
+    "B1_insufficient_samples": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 10,
+      "mean": 0.27841643144188216,
+      "std": 0.002786150376728529
+    },
+    "B2_no_trust_region": {
+      "n_seeds_diverged": 10,
+      "n_seeds_total": 10,
+      "mean": Infinity,
+      "std": NaN
+    },
+    "B3_no_shadow": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 10,
+      "mean": 0.19693489504990053,
+      "std": 0.0010672665484382537
+    },
+    "B4_no_rank_constraint": {
+      "n_seeds_diverged": 0,
+      "n_seeds_total": 10,
+      "mean": 0.18649577750651508,
+      "std": 0.0012640790657924578
+    }
+  },
+  "scaling_C_estimates": {
+    "0.005": 1.3032334254566458,
+    "0.01": 1.087466023607126,
+    "0.02": 1.1129990966327004,
+    "0.05": 1.1773094695706525,
+    "0.1": 1.2412514135860302,
+    "0.2": 1.348088243099817,
+    "0.3": 1.51228781861146
+  },
+  "scaling_C_mean": 1.254662212937776
+}
