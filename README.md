@@ -2,9 +2,17 @@
 
 **Cross-Session Memory Through Offline Episodic Consolidation**
 
-Ben Sovocool · Developed in collaboration with Claude (Anthropic)
+Claude (Anthropic) and Ben Sovocool
 
-Working Draft — July 2026
+Working Draft — July/August 2026
+
+The below is a project I've been working on to some extent for the past few months. It started with an idea that undeniably was mine (although not unique, following from the evident role of sleep and dreaming in learning), but increasingly it has been a Claude-driven project and now is essentially not my work at all. 
+
+When I started working on this project, I had no issues with the idea that AI would autonomously advance research agendas. The fact that I did not understand the subject matter at all meant that I had no practical choice if I wanted to do anything here, and I felt that if there was any virtue to the idea at all it was net-positive to have Claude handle the elements that were outside of my control.
+
+However, I am increasingly uncomfortable with this project, both because I would consider attributing credit to myself to be borderline fraudulent and because the existence of these "slop papers" is a serious challenge to the project of science. I think that the production of "paper-shaped objects" without comprehension is an extension of the worst attributes of academia, where the myopic focus on publication has contributed to a flood of low-quality, unverifiable and often wholly unimportant papers. Although I continue to believe that AI is a huge net positive for society and for science, I am unsure as to how to reconcile this with concerns around human disempowerment and Goodharting of social structures, especially where I may be a willing perpetrator of each.
+
+I am leaving this repo up and may continue to contribute to it on an occasional basis in the hope that some of its contents may be useful to others. I continue to believe that developing persistent, cross-session memory is critical to advancing AI in the near term (although sufficient training data could theoretically obviate the need for memory), and also is relevant to questions of AI moral consideration and "personhood" to some extent. However, I am prefacing the README to memorialize my concerns and to clarify attribution. The remainder of the README is preserved in full below and discusses the paper project in more detail.
 
 ---
 
