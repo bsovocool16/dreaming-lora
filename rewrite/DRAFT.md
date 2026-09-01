@@ -221,9 +221,24 @@ as text, across three uses; error bars span the replication range.*
 
 Five fresh replications; the paired difference is +1.00 on average
 against a pre-registered success bar of +0.20 and a shuffle-estimated
-noise band of ±0.035. Two controls sit at zero: a shuffled-label
-lineage (training pressure without true structure) and the unadapted
-base model (surface similarity alone). Across this and an earlier run,
+noise band of ±0.035. Two controls sit at zero: a shuffled-label lineage (training pressure
+without true structure) and the unadapted base model (surface
+similarity alone).
+
+Half of this result is expected and should be said plainly. The
+coherence pressure trains for exactly this — consistent representation
+of each entity across contexts — so clusterable states in the
+coherence lineage are the loss doing its job. Two things are not
+expected, and they carry the finding. First, the geometry transfers: it
+is measured on new sentences the adapter never trained on, at
+positions where the base model shows no entity structure at all.
+Second, the reconstruction lineage has none of it. Reconstruction
+training sees identical entity-laden sentences, fits them to
+perfection, and organizes nothing — the recovered structure is zero in
+ten of ten replications. The cleanness of the contrast comes from the
+laboratory: a twelve-entity world with a loss that targets the
+measurement is the sharpest possible test of whether fitting the text
+organizes the knower. It does not. Across this and an earlier run,
 reconstruction-written memory has now been handed to the loop ten
 times, and ten times the loop found nothing — not weak structure, no
 structure. Coherence-written memory was read nearly perfectly every
