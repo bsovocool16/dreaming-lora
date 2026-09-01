@@ -38,7 +38,7 @@ recitation of facts is a far cry from intelligence in a deeper sense,
 and the world is not composed of bare facts without organizing
 principle.
 
-Biological memory is not simply the accumulation of facts. Sleep, a
+Biological memory is not simply the accumulation of facts [1, 2]. Sleep, a
 central feature of memory, is not (as sometimes conceived) simply a
 replay and archive of the day. Instead, it is better understood as a
 reorganization of the sleeper — compression of experience into shared
@@ -116,8 +116,8 @@ Everything that follows uses one deliberately small apparatus.
 The subject is a frozen instruction-tuned language model (1.5 billion
 parameters; Qwen2.5). The model's own weights never change. Its only writable memory is a low-rank adapter — two thin
 matrices on the query and value projections, about a tenth of a percent
-of the model's size — which is the standard minimal way to give a fixed
-model a small number of adjustable weights. The adapter is the
+of the model's size — the standard minimal way to give a fixed model a small number of
+adjustable weights [3]. The adapter is the
 candidate long-term store; the context window is the short-term one;
 plain text files stand in for notes.
 
@@ -209,7 +209,15 @@ true identity (1.0 = perfect, 0 = chance):
 | 5 | −0.05 | 1.00 |
 
 *Values are the cycle-two self-derived grouping score (Adjusted Rand
-Index), rounded to two decimals.*
+Index), rounded to two decimals. Figure 1A plots them beside the two
+controls; Figure 1B plots the §5 comparison.*
+
+![Figure 1](figures/fig1.png)
+
+*Figure 1. (A) Grouping fidelity recovered by the consolidation loop's
+own unsupervised step, per replication; bars are means, dashed line is
+chance. (B) The same facts consolidated into weights versus supplied
+as text, across three uses; error bars span the replication range.*
 
 Five fresh replications; the paired difference is +1.00 on average
 against a pre-registered success bar of +0.20 and a shuffle-estimated
@@ -322,9 +330,8 @@ surrendering most new learning (dreamed-content accuracy falls to
 0.39) — protection and acquisition trade off steeply past the cheap
 regime. A calibrated update-size ceiling contributed nothing measurable
 against forgetting. At the real-model scale of our worlds, damage was
-negligible with decay on (perplexity 17.9 to 18.1); published results
-place serious interference near a thousand facts, a regime our worlds
-do not reach.
+negligible with decay on (perplexity 17.9 to 18.1); published results place serious interference near a thousand facts
+[4, 5], a regime our worlds do not reach.
 
 These safeguards are the stability half of a larger requirement: a
 memory that updates forever must remain bounded, tracking its stream
@@ -395,40 +402,78 @@ happening.
 
 **Complementary learning systems.** The two-store account of
 biological memory — fast episodic capture consolidated slowly into
-structured cortex — is the standard model in neuroscience. We
-operationalize its central distinction for language models and supply
+structured cortex — is the standard model in neuroscience [1, 2]. We operationalize its central distinction for language models and supply
 the test it has lacked in artificial systems: whether the slow store's
 structure is readable by the process that writes it.
 
 **Token-side memory.** Retrieval augmentation and memory files are the
-industry default, and their strongest current form — recursive
-language models with self-editing context — makes the note-taking layer
+industry default, and their strongest current form — recursive language models with
+self-editing context [6, 7] — makes the note-taking layer
 programmable and self-improving while leaving weights untouched. Our
 results endorse that layer for facts and locate its structural limit:
 a note store does not consolidate itself — nothing in that layer
 converts records into weights — and whether dispositional content
 requires weights remains open (§5).
 
-**Adapters and forgetting.** Continual-learning work on low-rank
-adapters (orthogonal subspace methods; merge-then-forget results;
-interference measurements at the thousand-fact scale) maps the damage
-regime our safeguards address. Trans-LoRA demonstrated synthetic-data
-adapter migration; our loop's dreams are a candidate source for exactly
+**Adapters and forgetting.** Continual-learning work on low-rank adapters (orthogonal subspace
+methods [8, 9]; merge-then-forget results [10]; interference
+measurements at the thousand-fact scale [4, 5]) maps the damage
+regime our safeguards address. Trans-LoRA [11] demonstrated synthetic-data adapter migration; our loop's dreams are a candidate source for exactly
 such a migration corpus, a possibility we note without testing.
 
 **Theory.** Two-part code decompositions make the structure/residue
-split precise. Bennett's result that the weakest sufficient hypothesis
+split precise [15]. Bennett's result [12] that the weakest sufficient hypothesis
 generalizes best, not the shortest, offers a formal frame consistent
 with our finding: the best compressor of the transcript need not store
 the most usable object.
-Zhang and Levin's epiplexity separates learnable from unlearnable
+Zhang and Levin's epiplexity [13] separates learnable from unlearnable
 surprise; it is the formal cousin of the triage gate in §8's open
 column.
 
-**Mechanistic workspace analysis.** Recent circuit-level work on
-global-workspace-like transport in transformers supplied the
+**Mechanistic workspace analysis.** Recent circuit-level work on global-workspace-like transport in
+transformers [14] supplied the
 instruments for §6; our contribution there is the measurement that
 consolidated content, unlike context, does not ride that transport.
+
+## References
+
+1. McClelland, J. L., McNaughton, B. L., & O'Reilly, R. C. (1995). Why
+   there are complementary learning systems in the hippocampus and
+   neocortex. *Psychological Review*, 102(3), 419–457.
+2. Kumaran, D., Hassabis, D., & McClelland, J. L. (2016). What learning
+   systems do intelligent agents need? Complementary learning systems
+   theory updated. *Trends in Cognitive Sciences*, 20(7), 512–534.
+3. Hu, E. J., et al. (2021). LoRA: Low-rank adaptation of large language
+   models. arXiv:2106.09685.
+4. Lin, et al. (2025). Continual learning via sparse memory finetuning.
+   arXiv:2510.15103.
+5. Biderman, D., et al. (2024). LoRA learns less and forgets less.
+   arXiv:2405.09673.
+6. Zhang, A. (2025). Recursive language models. Blog post and library;
+   https://github.com/alexzhang13/rlm.
+7. Prime Intellect (2026). Recursive language models: the paradigm of
+   2026; and Prime Agent: a self-improving RLM agent.
+   https://www.primeintellect.ai/blog/rlm ;
+   https://www.primeintellect.ai/blog/prime-agent.
+8. Wang, X., et al. (2023). Orthogonal subspace learning for language
+   model continual learning (O-LoRA). *Findings of EMNLP 2023*;
+   arXiv:2310.14152.
+9. OPLoRA (2025). Orthogonal projection LoRA for continual learning.
+   arXiv:2510.13003.
+10. Merge-before-Forget (2025). arXiv:2512.23017.
+11. Trans-LoRA (2024). Towards data-free transferable parameter-efficient
+    finetuning. arXiv:2405.17258.
+12. Bennett, M. T. (2024). The optimal choice of hypothesis is the
+    weakest, not the shortest. arXiv:2301.12987.
+13. Zhang, & Levin (2026). Intelligence from learnable novelty.
+    arXiv:2607.18433.
+14. Anthropic Interpretability Team (2026). Workspace circuits in
+    transformer language models. transformer-circuits.pub/2026/workspace.
+15. Rissanen, J. (1978). Modeling by shortest data description.
+    *Automatica*, 14(5), 465–471.
+
+*(Reference list to be completed with exact author lists, venues, and
+identifiers at final citation check.)*
 
 ---
 
