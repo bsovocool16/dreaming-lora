@@ -17,16 +17,16 @@ stored: an unsupervised process, the consolidation loop itself, can then
 find and correctly group new experience using the stored memory, one
 cycle deep, without labels or help (grouping fidelity 0.95 where reconstruction-written
 memory scores 0.00; five of five fresh replications; an effect nearly
-thirty times its noise envelope). Plain text, meanwhile, outperforms weights for carrying
-individual facts in every regime we test. These results support a
+thirty times its noise envelope). Plain text outperforms weights for carrying individual facts in
+every regime we test. These results support a
 simple account: memory is one substance at two phases — structure and
 residue. Weights hold what generalizes; notes hold what has not yet
 generalized and what, as pure contingency, never will. The phase
 transition between them is learning, and it requires a change of form,
 not merely location. We provide the operational test that distinguishes
 the phases — feed a system's memory to its own consolidation machinery
-and see whether the machinery can read it — and the beginnings of the
-phase diagram for a 1.5-billion-parameter model.
+and see whether the machinery can read it — and first measurements of where the
+phase boundary falls in a 1.5-billion-parameter model.
 
 ## 1. The question
 
@@ -125,11 +125,10 @@ Experience arrives as a synthetic world: a handful of invented entities
 with invented properties, expressed in sentences the model has never
 seen. Invented content lets us prove the model knew nothing beforehand,
 hold out test items with certainty, and rerun the system's entire life
-under a new seed. Ten to twelve entities is small.
-It is also, we will argue, already enough for the phenomenon of
-interest to appear and to be measured cleanly.
+under a new seed. Ten to twelve entities is small. The results in §4 show it is
+enough.
 
-Consolidation — the sleep of the title — is an offline loop: the system
+Consolidation — the dreaming of the title — is an offline loop: the system
 generates short texts about the recent world ("dreams," self-generated
 paraphrases and re-expressions of what it encountered), then trains the
 adapter on them. The loop makes one choice that matters, and it is the experimental
@@ -190,8 +189,7 @@ questions about the same content fall to near chance, and combining two
 stored facts scores exactly at chance in every replication. A recording
 can be replayed and cannot be consulted. The same content as plain text
 in context supports every one of those uses at 0.95 or better.
-Reconstruction wrote something less usable than a note — a note with
-its index torn off.
+Reconstruction wrote something less usable than a note.
 
 **The system itself.** Both previous instruments are outsiders. The
 phase claim concerns what the memory is *to the system*, and the
@@ -227,12 +225,10 @@ That last qualification is a result in its own right. Our first run of
 this experiment returned no verdict: its rules included a reliability
 check on the grouping instrument, the check missed its bar by four
 thousandths, and the pre-registered protocol declared the run
-inconclusive rather than let us claim an effect our instrument was not
-entitled to see. We hardened the instrument in the standard way
+inconclusive. We hardened the instrument in the standard way
 (consensus of three clustering criteria in place of one), drew five new
-replications, and the verdict above is theirs alone. The same rules
-that granted it had refused it first; we report both because a test
-that cannot refuse is not a test.
+replications, and the verdict above is theirs alone. The same rules that granted the result had first refused it. We
+report both: a test that cannot refuse is not a test.
 
 Predictions one and two hold. Reconstruction relocates; coherence
 converts.
@@ -258,10 +254,11 @@ composition task is 0.5.*
 Text wins every use except the first, and the first is a tie. A fact
 in the weights is available only along the path it was trained on. A
 fact in text is available to the model's full pretrained machinery —
-question answering, composition, everything reading already supports.
+question answering, composition, everything the model can already do
+with text.
 This is the behavioral face of §4's recording result.
 
-Weights hold one honest advantage, and the theory predicts it: cost.
+Weights hold one advantage, and the theory predicts it: cost.
 The consolidated adapter carries its content at zero context tokens; in
 our measurements the same content as notes costs 48 to 686 tokens per
 task, depending on verbosity. For content used constantly, the
@@ -286,9 +283,7 @@ advantage — the dispositional one — remains a prediction.
 ## 6. What kind of having
 
 Section 4 showed the consolidation loop can read coherence-written
-memory. It is natural to conclude that the model "has" this memory in
-some strong sense. One further experiment says the having is of a
-specific and limited kind, and the limit is worth stating exactly.
+memory. A further experiment says what kind of having this is.
 
 Language models move information through identifiable internal
 channels when they answer questions. Content in the context window
@@ -306,8 +301,7 @@ So consolidated memory is automatic. It shapes behavior the way a
 habit does — without announcing itself to the process that acts. The
 system can read its own weights when it sleeps: the consolidation
 loop, offline, reads what coherence wrote and groups new experience
-by it. It cannot
-consult them when it speaks: no signature of the memory enters the
+by it. It cannot consult them when it speaks: no signature of the memory enters the
 channels that carry deliberate answers. The distinction sharpens the
 §4 result rather than diminishing it. What we demonstrated is offline
 self-readability — memory legible to the machinery that maintains
@@ -341,9 +335,8 @@ a learner can remain perfectly stable around a useless or
 self-confirming attractor. The deeper reason both stability and
 validation are hard is circular: the adapter helps generate the very
 dreams that update the adapter. The frozen base model anchors that loop
-against drift, but an anchor is not an external check on truth. The
-real test of all of this — deployment-length horizons — is beyond this
-paper's worlds.
+against drift, but an anchor is not an external check on truth. Deployment-length horizons, the real test, are beyond this paper's
+worlds.
 
 ## 8. The ledger
 
@@ -351,8 +344,7 @@ What this paper demonstrates:
 
 1. **The phase difference is real and convergent across three
    instruments.** Probe, behavior, and the system's own machinery
-   agree:
-   reconstruction-written and coherence-written memory are different
+   agree: reconstruction-written and coherence-written memory are different
    kinds of object (§4).
 2. **Loop-readability, one cycle deep.** Coherence-written structure
    was found by the unsupervised machinery of the consolidation loop
@@ -382,21 +374,22 @@ What this paper does not demonstrate:
 
 ## 9. Coda
 
-The practical summary fits in two sentences. If you are building
-memory for a deployed model: keep facts in text, where the model's
-full intelligence can reach them; write weights only under a pressure
-that produces structure, because reproduction produces recordings the
-system's own machinery cannot read back; and expect what you consolidate to become habit
-rather than reference — present in behavior, absent from citation.
+The practical summary is three rules. Keep facts in text, where the
+model's full intelligence can reach them. Write weights only under a
+pressure that produces structure; reproduction produces recordings the
+system's own machinery cannot read back. Expect what you consolidate to
+become habit rather than reference: present in behavior, absent from
+citation.
 
 The conceptual summary is shorter still. Memory is one substance at
 two phases, and learning is the transition between them. Learning that
 generalizes requires compression, and compression is forgetting done
-well. A system that only stores has a past. A system that consolidates
-— under the right pressure — has a shape. That difference is
-measurable, we measured it, and it is the difference the architecture
-of any persistent mind will have to respect: notes for what happened;
-weights for what keeps happening.
+well. A system that
+only stores has a past. A system that consolidates under the right
+pressure has a shape. That difference is measurable, and we measured
+it. It is the difference the architecture of any persistent mind will
+have to respect: notes for what happened; weights for what keeps
+happening.
 
 ## 10. Related work
 
@@ -409,8 +402,7 @@ structure is readable by the process that writes it.
 
 **Token-side memory.** Retrieval augmentation and memory files are the
 industry default, and their strongest current form — recursive
-language models with self-editing context — makes the note-taking
-layer
+language models with self-editing context — makes the note-taking layer
 programmable and self-improving while leaving weights untouched. Our
 results endorse that layer for facts and locate its structural limit:
 a note store does not consolidate itself — nothing in that layer
