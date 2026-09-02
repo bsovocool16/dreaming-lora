@@ -178,8 +178,9 @@ entity the model is representing reads coherence-written weights at
 0.98 accuracy (cross-context retrieval 0.92; five of five
 replications). The same classifier reads reconstruction-written weights
 at 0.72 (retrieval 0.57). The trace is not zero — we return to this —
-but the difference is large, consistent, and appears in a geometry the
-training loss never optimized. A probe result alone could still be a
+but the difference is large, consistent, and appears in a geometry
+the loss does not directly optimize (not fully independent of it:
+cosine clustering tends to induce linear separability). A probe result alone could still be a
 story about representations that only our instruments care about.
 
 **Behavioral test.** The reconstruction-consolidated model completes
@@ -234,23 +235,27 @@ is measured on new sentences the adapter never trained on, at
 positions where the base model shows no entity structure at all.
 Second, the reconstruction lineage has none of it. Reconstruction
 training sees identical entity-laden sentences, fits them to
-perfection, and organizes nothing — the recovered structure is zero in
-ten of ten replications. The cleanness of the contrast comes from the
+perfection, and organizes nothing — the recovered structure is zero in five of five licensed
+replications. The cleanness of the contrast comes from the
 laboratory: a twelve-entity world with a loss that targets the
 measurement is the sharpest possible test of whether fitting the text
-organizes the knower. It does not. Across this and an earlier run,
-reconstruction-written memory has now been handed to the loop ten
-times, and ten times the loop found nothing — not weak structure, no
-structure. Coherence-written memory was read nearly perfectly every
+organizes the knower. It does not. In the licensed run, reconstruction-written memory was handed to the
+loop five times, and five times the loop found nothing — not weak
+structure, no structure. (An earlier run of the same design, discussed
+next, showed the identical reconstruction pattern; because that run
+failed its instrument check, its numbers are reported as consistent,
+not as evidence.) Coherence-written memory was read nearly perfectly every
 time the instrument itself was healthy.
 
 That last qualification is a result in its own right. Our first run of
 this experiment returned no verdict: its rules included a reliability
 check on the grouping instrument, the check missed its bar by four
 thousandths, and the pre-registered protocol declared the run
-inconclusive. We hardened the instrument in the standard way
-(consensus of three clustering criteria in place of one), drew five new
-replications, and the verdict above is theirs alone. The same rules that granted the result had first refused it. We
+inconclusive. We hardened the instrument in the standard way (consensus of three
+clustering criteria in place of one), pre-registered that a second
+instrument failure would end the line rather than prompt a third
+attempt, drew five new replications, and the verdict above is theirs
+alone. The same rules that granted the result had first refused it. We
 report both: a test that cannot refuse is not a test.
 
 Predictions one and two hold. Reconstruction relocates; coherence
@@ -286,16 +291,20 @@ The consolidated adapter carries its content at zero context tokens; in
 our measurements the same content as notes costs 48 to 686 tokens per
 task, depending on verbosity. For content used constantly, the
 amortization argument is real. For content used occasionally, it is
-not. Nothing in our data supports moving facts to weights for any
-reason except context budget.
+not. Nothing in our data supports moving facts to weights for any reason
+except context budget. The comparison holds for the regime we tested
+(rank-8 adapters, a fixed training budget); we did not sweep adapter
+capacity or training length, and a fact-consolidation recipe tuned for
+format transfer is not ruled out.
 
 The theory also says weights should win somewhere text cannot follow:
 dispositions — style, calibration, skill — content demonstrated rather
 than stated. We attempted the measurement and report it as unresolved.
-The judged comparisons showed no advantage, but the experiment's own
-checks disqualified its instruments (the two judge models agreed with
-each other at chance; the teacher model barely expressed the style it
-was teaching), and one judge-free measurement leaned the predicted way
+The judged comparisons showed no advantage, but the experiment's own reliability measurements — reported
+quantities in the frozen analysis, not pre-registered gates —
+undermined its instruments (the two judge models agreed with each other
+at chance; the teacher model barely expressed the style it was
+teaching), and one judge-free measurement leaned the predicted way
 with no variance estimate to weigh it by. The pre-registered null did
 not trigger either. The territory is open; the ledger records it.
 
